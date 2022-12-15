@@ -14,8 +14,8 @@
 <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.12.4.min.js"></script>
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 
-<link rel="stylesheet" href="resources/a00_com/bootstrap.min.css" >
-<link rel="stylesheet" href="resources/a00_com/jquery-ui.css" >
+<link rel="stylesheet" href="resources/lib/bootstrap.min.css" >
+<link rel="stylesheet" href="resources/lib/jquery-ui.css" >
 <style type="text/css">
 	.input-group-text{width:100%;background-color:linen;color:black;font-weight:bolder;}
 	.input-group-prepend{width:20%;}
@@ -23,14 +23,14 @@
 
 <script>
 
-function goDetail(empno){
+function goDetail(im_key){
 	// get방식으로 상세화면 이동..
-	location.href="${path}/HRDetail?empno="+empno;	
+	location.href="${path}/HRDetail?im_key="+im_key;	
 }
 
 function insertPage(){
 	
-	location.href="${path}/empInsertPage";	
+	location.href="${path}/HrInsertPage";	
 }
 
 </script>
@@ -55,11 +55,22 @@ function insertPage(){
    	<col width="20%">
     <thead>
       <tr class="table-success text-center">
-        <th>사원번호</th>
-        <th>사원명</th>
-        <th>직책명</th>
-        <th>급여</th>
-        <th>부서번호</th>
+        <th>IM_KEY</th>
+        <th>IM_USER_ID</th>
+        <th>IM_USER_NAME_KR</th>
+        <th>IM_USER_NAME_EN</th>
+        <th>IM_USER_RANK</th>
+        <th>IM_DEPT</th>
+        <th>IM_USER_MAIL</th>
+        <th>IM_PHONE_NUM</th>
+        <th>IM_HIRE_DATE</th>
+        <th>IM_UPDATE</th>
+        <th>IM_USER_PW</th>
+        <th>IM_FLAG</th>
+        <th>IM_STATUS</th>
+        <th>ERCO_YMD</th>
+        <th>RTRM_YMD</th>
+        <th>BIRYMD</th>
       </tr>
     </thead>	
     <tbody>
