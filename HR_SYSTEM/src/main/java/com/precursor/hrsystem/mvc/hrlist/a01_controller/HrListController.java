@@ -20,10 +20,10 @@ public class HrListController {
 	
 	
 	// 인사원장 리스트 controller
-	@RequestMapping(value="/hrList")
+	@RequestMapping(value="/hrListTest")
 	public String hrList(HrList sch, Model d) {
 		
-		d.addAttribute("hrlist", service.getHrList(sch));
+		d.addAttribute("hrlisttest", service.getHrList(sch));
 		
 		return "hrlist/HrList";
 	}
