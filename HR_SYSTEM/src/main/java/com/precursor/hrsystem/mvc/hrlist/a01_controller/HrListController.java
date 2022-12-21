@@ -25,7 +25,7 @@ public class HrListController {
 		
 		d.addAttribute("hrlisttest", service.getHrList(sch));
 		
-		return "hrlist/HrList";
+		return "hrlist/HrListTest";
 	}
 	
 }

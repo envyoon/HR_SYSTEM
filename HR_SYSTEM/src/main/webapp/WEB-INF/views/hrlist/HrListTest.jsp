@@ -7,22 +7,23 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>HR LIST</title>
+<title>HR LIST TEST</title>
 
 <!-- 제이쿼리 CDN -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.12.4.min.js"></script>
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 
+<!-- CSS 링크 -->
 <link rel="stylesheet" href="resources/lib/bootstrap.min.css" >
 <link rel="stylesheet" href="resources/lib/jquery-ui.css" >
-<style type="text/css">
-	.input-group-text{width:100%;background-color:linen;color:black;font-weight:bolder;}
-	.input-group-prepend{width:20%;}
-</style>
+<link rel="stylesheet" href="resources/css/main.css" >
+
+
 
 <script>
 
+// 수정해야하는 부분 22.12.21
 function goDetail(im_key){
 	// get방식으로 상세화면 이동..
 	location.href="${path}/HRDetail?im_key="+im_key;	
@@ -41,17 +42,13 @@ function insertPage(){
 
 
 <div class="jumbotron text-center">
-  <h2>사원정보조회</h2>
+  <h2>인사정보리스트</h2>
 
 </div>
 
 <div class="container">
 
    <table class="table table-hover table-striped">
-   	<col width="20%">
-   	<col width="20%">
-   	<col width="20%">
-   	<col width="20%">
    	<col width="20%">
     <thead>
       <tr class="table-success text-center">
@@ -74,13 +71,11 @@ function insertPage(){
       </tr>
     </thead>	
     <tbody>
-    	<c:forEach var="emp" items="${emplist}">
-	    	<tr ondblclick="goDetail(${emp.empno})">
-	    		<td>${emp.empno}</td>
-	    		<td>${emp.ename}</td>
-	    		<td>${emp.job}</td>
-	    		<td><fmt:formatNumber value="${emp.sal}"/></td>
-	    		<td>${emp.deptno}</td>
+    	<c:forEach var="hrlist" items="${hrlisttest}">
+	    	<tr ondblclick="goDetail(${hrlist.im_key})">
+	    		<td>${hrlist.im_key}</td>
+	    		<td>${hrlist.im_user_id}</td>
+	    		<td>${hrlist.im_user_name_kr}</td>
 	    	</tr>
     	</c:forEach>
     </tbody>
