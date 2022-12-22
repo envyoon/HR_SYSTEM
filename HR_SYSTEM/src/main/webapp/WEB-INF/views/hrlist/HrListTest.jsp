@@ -71,7 +71,7 @@ function insertPage(){
       </tr>
     </thead>	
     <tbody>
-    	<c:forEach var="hrlisttest" items="${hrlisttest}">
+    	<c:forEach var="hrlist" items="${hrlisttest}">
 	    	<tr ondblclick="goDetail(${hrlisttest.im_key})">
 	    		<td>${hrlisttest.im_key}</td>
 	    		<td>${hrlisttest.im_user_id}</td>
