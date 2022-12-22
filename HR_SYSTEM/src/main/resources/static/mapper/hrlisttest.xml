@@ -5,13 +5,13 @@
 	
 <mapper namespace="com.precursor.hrsystem.mvc.hrlist.a03_dao.HrListDao">
 
-	<select id="getHrList" resultType="hrlist" parameterType="hrlist">
+	<select id="getHrList" resultType="HrListTest" parameterType="HrListTest">
 		select *
 		from human_resource
 	</select>
 	
 	<!-- 
-	<insert id="getHrList" parameterType="hrlist">
+	<insert id="getHrList" parameterType="HrListTest">
     <selectKey order="BEFORE" keyProperty="IM_KEY" resultType="int">
         select 
             to_number(to_char(sysdate,'YYMMDD') || nvl(to_char(max(substr(IM_KEY,7))),'0000'))+1
