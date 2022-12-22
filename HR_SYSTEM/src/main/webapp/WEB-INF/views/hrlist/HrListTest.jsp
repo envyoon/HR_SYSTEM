@@ -49,7 +49,7 @@ function insertPage(){
 <div class="container">
 
    <table class="table table-hover table-striped">
-   	<col width="20%">
+   	<!-- <col width="20%"> -->
     <thead>
       <tr class="table-success text-center">
         <th>IM_KEY</th>
@@ -71,11 +71,11 @@ function insertPage(){
       </tr>
     </thead>	
     <tbody>
-    	<c:forEach var="hrlist" items="${hrlisttest}">
-	    	<tr ondblclick="goDetail(${hrlist.im_key})">
-	    		<td>${hrlist.im_key}</td>
-	    		<td>${hrlist.im_user_id}</td>
-	    		<td>${hrlist.im_user_name_kr}</td>
+    	<c:forEach var="hrlisttest" items="${hrlisttest}">
+	    	<tr ondblclick="goDetail(${hrlisttest.im_key})">
+	    		<td>${hrlisttest.im_key}</td>
+	    		<td>${hrlisttest.im_user_id}</td>
+	    		<td>${hrlisttest.im_user_name_kr}</td>
 	    	</tr>
     	</c:forEach>
     </tbody>
