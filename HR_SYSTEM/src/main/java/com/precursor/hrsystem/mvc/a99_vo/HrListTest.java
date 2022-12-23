@@ -1,4 +1,4 @@
-package com.precursor.hrsystem.mvc.hrlist.a04_vo;
+package com.precursor.hrsystem.mvc.a99_vo;
 
 import java.sql.Date;
 
@@ -14,6 +14,7 @@ import lombok.ToString;
 @NoArgsConstructor
 @AllArgsConstructor
 public class HrListTest {
+	
 	private int im_key;
 	private String im_user_id;
 	private String im_user_name_kr;

@@ -5,8 +5,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.precursor.hrsystem.mvc.a99_vo.HrListTest;
 import com.precursor.hrsystem.mvc.hrlist.a02_service.HrListService;
-import com.precursor.hrsystem.mvc.hrlist.a04_vo.HrListTest;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -23,7 +23,7 @@ public class HrListController {
 	@RequestMapping(value="/hrListTest")
 	public String hrList(HrListTest sch, Model d) {
 		
-		//d.addAttribute("hrlisttest", service.getHrList(sch));
+		d.addAttribute("hrlisttest", service.getHrList(sch));
 		
 		return "hrlist/HrListTest";
 	}

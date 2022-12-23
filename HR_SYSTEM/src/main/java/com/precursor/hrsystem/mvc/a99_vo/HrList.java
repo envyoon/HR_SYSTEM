@@ -1,4 +1,4 @@
-package com.precursor.hrsystem.mvc.hrlist.a04_vo;
+package com.precursor.hrsystem.mvc.a99_vo;
 
 public class HrList {
 
