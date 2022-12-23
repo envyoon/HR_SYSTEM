@@ -23,7 +23,8 @@
 
 <script>
 
-// 수정해야하는 부분 22.12.21
+// 수정해야하는 부분 22.12.23
+/**
 function goDetail(im_key){
 	// get방식으로 상세화면 이동..
 	location.href="${path}/HRDetail?im_key="+im_key;	
@@ -33,6 +34,7 @@ function insertPage(){
 	
 	location.href="${path}/HrInsertPage";	
 }
+*/
 
 </script>
 
@@ -72,7 +74,7 @@ function insertPage(){
     </thead>	
     <tbody>
     	<c:forEach var="hrlist" items="${hrlisttest}">
-	    	<tr ondblclick="goDetail(${hrlist.im_key})">
+	    	<tr>
 	    		<td>${hrlist.im_key}</td>
 	    		<td>${hrlist.im_user_id}</td>
 	    		<td>${hrlist.im_user_name_kr}</td>
