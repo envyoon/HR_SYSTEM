@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.precursor.hrsystem.mvc.a99_vo.HrListTest;
+import com.precursor.hrsystem.mvc.a99_vo.HrListTestVO;
 import com.precursor.hrsystem.mvc.hrlist.a03_dao.HrListDao;
 
 @Service
@@ -24,7 +24,7 @@ public class HrListService {
 	*/
 	
 	// 인사원장 리스트 비지니스 로직 테스트
-		public ArrayList<HrListTest> getHrList(HrListTest sch){
+		public ArrayList<HrListTestVO> getHrList(HrListTestVO sch){
 			
 			return dao.getHrList(sch);
 		}

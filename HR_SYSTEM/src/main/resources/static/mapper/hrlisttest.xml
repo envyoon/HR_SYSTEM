@@ -5,9 +5,10 @@
 	
 <mapper namespace="com.precursor.hrsystem.mvc.hrlist.a03_dao.HrListDao">
 
-	<select id="getHrList" resultType="HrListTest" parameterType="HrListTest">
+	<select id="getHrList" resultType="HrListTestVO" parameterType="HrListTestVO">
 		select *
 		from human_resource
+		order by im_key asc
 	</select>
 	
 	<!-- 

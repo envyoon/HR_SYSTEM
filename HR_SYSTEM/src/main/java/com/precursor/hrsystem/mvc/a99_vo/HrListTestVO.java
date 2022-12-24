@@ -15,7 +15,7 @@ import lombok.ToString;
 @ToString
 @NoArgsConstructor
 @AllArgsConstructor
-public class HrListTest {
+public class HrListTestVO {
 	
 	private int im_key;
 	private String im_user_id;
