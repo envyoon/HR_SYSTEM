@@ -51,33 +51,32 @@ function insertPage(){
 <div class="container">
 
    <table class="table table-hover table-striped">
-   	<!-- <col width="20%"> -->
+   	<col width="15%">
+   	<col width="15%">
+   	<col width="15%">
+   	<col width="15%">
+   	<col width="15%">
+   	<col width="15%">
     <thead>
       <tr class="table-success text-center">
-        <th>IM_KEY</th>
-        <th>IM_USER_ID</th>
-        <th>IM_USER_NAME_KR</th>
-        <th>IM_USER_NAME_EN</th>
-        <th>IM_USER_RANK</th>
-        <th>IM_DEPT</th>
-        <th>IM_USER_MAIL</th>
-        <th>IM_PHONE_NUM</th>
-        <th>IM_HIRE_DATE</th>
-        <th>IM_UPDATE</th>
-        <th>IM_USER_PW</th>
-        <th>IM_FLAG</th>
-        <th>IM_STATUS</th>
-        <th>ERCO_YMD</th>
-        <th>RTRM_YMD</th>
-        <th>BIRYMD</th>
+        <th>사번</th>
+        <th>이름(한글)</th>
+        <th>이름(영문)</th>
+        <th>직급</th>
+        <th>부서</th>
+        <th>입사날짜</th>
+        <th>생년월일</th>
       </tr>
     </thead>	
     <tbody>
     	<c:forEach var="hrlist" items="${hrlisttest}">
 	    	<tr>
 	    		<td>${hrlist.im_key}</td>
-	    		<td>${hrlist.im_user_id}</td>
 	    		<td>${hrlist.im_user_name_kr}</td>
+	    		<td>${hrlist.im_user_name_en}</td>
+	    		<td>${hrlist.im_dept}</td>
+	    		<td>${hrlist.im_hiredate}</td>
+	    		<td>${hrlist.birymd}</td>
 	    	</tr>
     	</c:forEach>
     </tbody>
