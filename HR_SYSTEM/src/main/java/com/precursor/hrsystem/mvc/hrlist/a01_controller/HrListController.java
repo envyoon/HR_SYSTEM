@@ -1,6 +1,5 @@
 package com.precursor.hrsystem.mvc.hrlist.a01_controller;
 
-import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

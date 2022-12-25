@@ -51,12 +51,13 @@ function insertPage(){
 <div class="container">
 
    <table class="table table-hover table-striped">
-   	<col width="15%">
-   	<col width="15%">
-   	<col width="15%">
-   	<col width="15%">
-   	<col width="15%">
-   	<col width="15%">
+   	<col width="10%">
+   	<col width="10%">
+   	<col width="10%">
+   	<col width="10%">
+   	<col width="10%">
+   	<col width="10%">
+   	<col width="10%">
     <thead>
       <tr class="table-success text-center">
         <th>사번</th>
@@ -74,6 +75,7 @@ function insertPage(){
 	    		<td>${hrlist.im_key}</td>
 	    		<td>${hrlist.im_user_name_kr}</td>
 	    		<td>${hrlist.im_user_name_en}</td>
+	    		<td>${hrlist.im_user_rank}</td>
 	    		<td>${hrlist.im_dept}</td>
 	    		<td><fmt:formatDate value="${hrlist.im_hire_date}"/></td>
 	    		<td><fmt:formatDate value="${hrlist.birymd}"/></td>
