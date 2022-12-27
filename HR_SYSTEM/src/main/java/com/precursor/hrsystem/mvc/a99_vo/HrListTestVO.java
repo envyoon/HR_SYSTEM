@@ -17,21 +17,21 @@ import lombok.ToString;
 @AllArgsConstructor
 public class HrListTestVO {
 	
-	private int im_key;
-	private String im_user_id;
-	private String im_user_name_kr;
-	private String im_user_name_en;
-	private String im_user_rank;
-	private String im_dept;
-	private String im_user_mail;
-	private String im_phone_num;
-	private Date im_hire_date;
-	private Date im_update;
-	private String im_user_pw;
-	private String im_flag;
-	private String im_status;
-	private Date erco_ymd;
-	private Date rtrm_ymd;
+	private int imKey;
+	private String imUserId;
+	private String imUserNameKr;
+	private String imUserNameEn;
+	private String imUserRank;
+	private String imDept;
+	private String imUserMail;
+	private String imPhoneNum;
+	private Date imHireDate;
+	private Date imUpdate;
+	private String imUserPw;
+	private String imFlag;
+	private String imStatus;
+	private Date ercoYmd;
+	private Date rtrmYmd;
 	private Date birymd;
 	
 	
