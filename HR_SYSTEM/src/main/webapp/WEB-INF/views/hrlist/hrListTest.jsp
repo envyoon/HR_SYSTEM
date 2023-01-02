@@ -69,7 +69,7 @@ function insertPage(){
         <th>생년월일</th>
       </tr>
     </thead>	
-    <tbody>
+    <tbody class="text-center">
     	<c:forEach var="hrlist" items="${hrdata}">
 	    	<tr ondblclick="goDetail(${hrlist.imKey})">
 	    		<td>${hrlist.imKey}</td>

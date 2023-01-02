@@ -24,11 +24,10 @@ public class HrListController {
 	@RequestMapping(value="/hrListTest")
 	public String hrList(HrListTestVO sch, Model d) {
 		
-		
 		d.addAttribute("hrdata", service.getHrList(sch));
-		
 		
 		return "hrlist/hrListTest";
 	}
+	
 	
 }
