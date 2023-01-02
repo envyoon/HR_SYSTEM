@@ -11,6 +11,16 @@
 		order by im_key asc
 	</select>
 	
+	<!-- 회원 정보 SQL (페이징 처리)
+	<select id="getMemberList" resultType="member" parameterType="member">
+		select *
+		from pmsmember
+		where name like '%' || #{name} || '%'
+		ORDER BY MEM_NUM asc
+	</select>
+	-->
+	
+	
 	<!-- 
 	<insert id="getHrList" parameterType="HrListTest">
     <selectKey order="BEFORE" keyProperty="IM_KEY" resultType="int">
