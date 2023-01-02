@@ -35,6 +35,10 @@ public class HrListTestVO extends BoardSch{
 	private Date ercoYmd;
 	private Date rtrmYmd;
 	private Date birymd;
-	
-	
+	private int no; // no
+	private int refno; //refno
+	private int readcnt; // cnt
+	private int level;
+	private int cnt;
+
 }

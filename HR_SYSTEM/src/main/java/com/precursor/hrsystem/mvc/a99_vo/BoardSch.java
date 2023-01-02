@@ -23,7 +23,7 @@ public class BoardSch {
 	private int curPage; // 클릭한 현재 페이지 번호
 	private int start; // DB에 넘길 시작 번호
 	private int end; // DB에 넘길 페이지의 마지막 번호
-	private int totcnt; // 총 건수?
+	
 	// block 처리
 	private int blockSize; // 한번에 보여줄 하단의 페이지 블럭
 	private int startBlock; // 블럭의 시작 번호
@@ -34,5 +34,12 @@ public class BoardSch {
 	
 	private String sch;
 	private String skind;
+	
+	
+	private int no; // no
+	private int refno; //refno
+	private int readcnt; // cnt
+	private int level;
+	private int cnt;
 	
 }
