@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.precursor.hrsystem.mvc.a99_vo.BoardSch;
 import com.precursor.hrsystem.mvc.a99_vo.HrListTestVO;
 import com.precursor.hrsystem.mvc.hrlist.a03_dao.HrListDao;
 
@@ -23,15 +24,15 @@ public class HrListService {
 	}
 	*/
 	
+	/*
 	// 인사원장 리스트 비지니스 로직 테스트
 		public ArrayList<HrListTestVO> getHrList(HrListTestVO sch){
 			
 			return dao.getHrList(sch);
 		}
-		
-	/*
-	 * 
-	 * public List<Notice> getNoticeList(BoardSch sch){
+	*/
+	
+	 public ArrayList<HrListTestVO> getHrList(BoardSch sch){
 		// 1. 전체 갯수
 		// 총 건수를 화면에 출력하려면 BoardSch에 설정. 모델 데이터로 활용할 수 있음
 		sch.setCount(dao.totCnt(sch));
@@ -66,9 +67,9 @@ public class HrListService {
 				//     총페이지수 보다 크면 총 페이지수를 마지막 페이지 번호.
 				int endBlockGrpNo = curBlockGrpNo*sch.getBlockSize();
 				sch.setEndBlock(endBlockGrpNo>sch.getPageCount()?sch.getPageCount():endBlockGrpNo);
-				return dao.getNoticeList(sch);		
+				return dao.getHrList(sch);		
 	}
 	 
-	 */
+	 
 		
 }

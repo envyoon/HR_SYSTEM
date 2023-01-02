@@ -50,6 +50,30 @@ function insertPage(){
 
 <div class="container">
 
+	<!-- 검색란 -->
+	<form id="frm01" class="form-inline"  method="post">
+		
+		<input type="hidden" name="pageSize" value="5" />
+		<input type="hidden" name="curPage" value="1" />
+			
+	  	<nav class="navbar navbar-expand-sm navbar-dark">
+		    <input class="form-control mr-sm-2" placeholder="검색 내용" name="sch" value="${param.sch}"/>
+		    <select name="skind" class="form-control mr-sm-2">
+		    		<option value="">전체</option>
+					<option>제목</option>
+					<option>작성자</option>
+			</select>
+					
+					<script type="text/javascript">
+						$("[name=skind]").val("${param.skind}")
+					
+					</script>
+					
+					
+				    <button class="btn btn-primary" type="submit">검색</button>
+	 	</nav>
+	</form>
+
    <table class="table table-hover table-striped">
    	<col width="10%">
    	<col width="10%">
@@ -84,9 +108,22 @@ function insertPage(){
     </tbody>
 	</table>    
     
+    <ul class="pagination  justify-content-end">
+		  <li class="page-item"><a class="page-link" 
+		  	href="javascript:goPage(${boardSch.startBlock!=1?boardSch.startBlock-1:1})">Previous</a></li>
+		  <c:forEach var="cnt" begin="${boardSch.startBlock}" end="${boardSch.endBlock}">
+		  	<li class="page-item ${cnt==boardSch.curPage?'active':''}"> <!-- 클릭한 현재 페이지 번호 -->
+		  		<a class="page-link" href="javascript:goPage(${cnt})">${cnt}</a></li>
+		  </c:forEach>
+		  <li class="page-item"><a class="page-link" 
+		  	href="javascript:goPage(${boardSch.endBlock!=boardSch.pageCount?boardSch.endBlock+1:boardSch.endBlock})">Next</a></li>
+	</ul>
+    
     <div class="modal-footer">
 	        <button type="button"  onclick="insertPage()">등록하기</button>
 	</div>
+    
+    
     
 </div>
 
