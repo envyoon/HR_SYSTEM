@@ -5,24 +5,24 @@
 
 <mapper namespace="com.precursor.hrsystem.mvc.hrlist.a03_dao.HrListDao">
 
-	<!-- 일반 쿼리 (리스트 출력)  
+	<!-- 일반 쿼리 (리스트 출력)  -->
 	<select id="getHrList" resultType="HrListTestVO" parameterType="HrListTestVO">
 		select im_key, im_user_name_kr, im_user_name_en, im_user_rank, im_dept, im_hire_date, birymd
 		from human_resource
 		order by im_key asc
 	</select>
-	-->
 	
-	<!-- 전체 인원수 확인하는 쿼리 -->
+	
+	<!-- 전체 인원수 확인하는 쿼리 
 	<select id="totCnt"  parameterType="boardSch" resultType="int">
 			select count(*)
 			from human_resource
 			where 1=1
 	</select>
+	-->
 	
-	
-	<!-- 페이징 처리 추가된 쿼리 -->
-	<select id="getHrList" resultType="HrListTestVO" parameterType="boardSch">
+	<!-- 페이징 처리 추가된 쿼리 
+	<select id="getHrList" resultType="HrListTestVO" parameterType="HrListTestVO">
 		select *
 		from (
 			select rownum cnt, level, h.* 
@@ -33,7 +33,7 @@
 			ORDER siblings BY no desc )
 			where cnt between #{start} and #{end}
 	</select>
-	
+	-->
 	
 	
 	

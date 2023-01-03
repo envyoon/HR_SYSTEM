@@ -16,8 +16,8 @@ public interface HrListDao {
 	//public ArrayList<HrList> getHrList(HrList sch);
 	
 	// 인사원장 리스트 출력 테스트
-	public ArrayList<HrListTestVO> getHrList(BoardSch sch);
+	public ArrayList<HrListTestVO> getHrList(HrListTestVO sch);
 	
-	public int totCnt(BoardSch sch);
+	//public int totCnt(BoardSch sch);
 	
 }
