@@ -5,12 +5,73 @@
 
 <mapper namespace="com.precursor.hrsystem.mvc.hrlist.a03_dao.HrListDao">
 
-	<!-- 일반 쿼리 (리스트 출력)  -->
+	<!-- 인사정보 리스트 출력 쿼리  -->
 	<select id="getHrList" resultType="HrListTestVO" parameterType="HrListTestVO">
 		select im_key, im_user_name_kr, im_user_name_en, im_user_rank, im_dept, im_hire_date, birymd
 		from human_resource
 		order by im_key asc
 	</select>
+	
+	<!-- 인사정보 등록 쿼리 -->
+	<insert id="insertHR" parameterType="HrListTestVO">
+		INSERT INTO STSBOOT.human_resource (IM_KEY, IM_USER_ID, IM_USER_NAME_KR, IM_USER_NAME_EN, IM_USER_RANK, IM_DEPT, IM_USER_MAIL, IM_PHONE_NUM, IM_HIRE_DATE, IM_UPDATE, IM_USER_PW, IM_FLAG, IM_STATUS, ERCO_YMD, RTRM_YMD, BIRYMD)
+		VALUES(
+		#{IM_KEY},
+		#{IM_USER_ID},
+		#{IM_USER_NAME_KR},
+		#{IM_USER_NAME_EN},
+		#{IM_USER_RANK},
+		#{IM_DEPT},
+		#{IM_USER_MAIL},
+		#{IM_PHONE_NUM},
+		#{IM_HIRE_DATE},
+		#{IM_UPDATE},
+		#{IM_USER_PW},
+		#{IM_FLAG},
+		#{IM_STATUS},
+		#{ERCO_YMD},
+		#{RTRM_YMD},
+		#{BIRYMD}
+		)
+	</insert>
+
+	<!-- 인사정보 상세 가져오는 쿼리 -->
+	<select id="getimKey" resultType="HrListTestVO">
+		select *
+		from STSBOOT.human_resource
+		where IM_KEY = #{im_KEY}
+	</select>
+	
+	<!-- 인사정보 업데이트 쿼리 -->
+	<update id = "uptHr" parameterType="HrListTestVO">
+	update STSBOOT.human_resource
+	set
+		IM_KEY = #{IM_KEY},
+		IM_USER_ID = #{IM_USER_ID}, 
+		IM_USER_NAME_KR = #{IM_USER_NAME_KR}, 
+		IM_USER_NAME_EN = #{IM_USER_NAME_EN}, 
+		IM_USER_RANK = #{IM_USER_RANK}, 
+		IM_DEPT = #{IM_DEPT},
+		IM_USER_MAIL = #{IM_USER_MAIL}, 
+		IM_PHONE_NUM = #{IM_PHONE_NUM}, 
+		IM_HIRE_DATE = #{IM_HIRE_DATE}, 
+		IM_UPDATE = #{IM_UPDATE}, 
+		IM_USER_PW = #{IM_USER_PW},
+		IM_FLAG = #{IM_FLAG}, 
+		IM_STATUS = #{IM_STATUS}, 
+		ERCO_YMD = #{ERCO_YMD}, 
+		RTRM_YMD = #{RTRM_YMD}, 
+		BIRYMD = #{BIRYMD}
+	where IM_KEY = #{IM_KEY}	
+	</update>
+	
+	<!-- 인사정보 삭제 쿼리 -->
+	<delete id="delHr" parameterType="int">
+		delete
+		from STSBOOT.human_resource 
+		where IM_KEY = #{IM_KEY}
+	</delete>
+	
 	
 	
 	<!-- 전체 인원수 확인하는 쿼리 
@@ -46,9 +107,7 @@
 	</select>
 	-->
 	
-	
-	
-	
+
 	
 	
 	<!-- 
