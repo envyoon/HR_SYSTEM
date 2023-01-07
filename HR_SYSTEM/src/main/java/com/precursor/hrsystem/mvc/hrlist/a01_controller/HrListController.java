@@ -11,9 +11,6 @@ import com.precursor.hrsystem.mvc.a99_vo.HrListTestVO;
 import com.precursor.hrsystem.mvc.hrlist.a02_service.HrListService;
 
 
-
-
-
 @Controller
 @RequestMapping("/")
 public class HrListController {
