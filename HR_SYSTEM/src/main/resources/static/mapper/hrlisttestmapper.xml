@@ -16,22 +16,22 @@
 	<insert id="insertHR" parameterType="HrListTestVO">
 		INSERT INTO STSBOOT.human_resource (IM_KEY, IM_USER_ID, IM_USER_NAME_KR, IM_USER_NAME_EN, IM_USER_RANK, IM_DEPT, IM_USER_MAIL, IM_PHONE_NUM, IM_HIRE_DATE, IM_UPDATE, IM_USER_PW, IM_FLAG, IM_STATUS, ERCO_YMD, RTRM_YMD, BIRYMD)
 		VALUES(
-		#{IM_KEY},
-		#{IM_USER_ID},
-		#{IM_USER_NAME_KR},
-		#{IM_USER_NAME_EN},
-		#{IM_USER_RANK},
-		#{IM_DEPT},
-		#{IM_USER_MAIL},
-		#{IM_PHONE_NUM},
-		#{IM_HIRE_DATE},
-		#{IM_UPDATE},
-		#{IM_USER_PW},
-		#{IM_FLAG},
-		#{IM_STATUS},
-		#{ERCO_YMD},
-		#{RTRM_YMD},
-		#{BIRYMD}
+		#{imKey},
+		#{imUserId},
+		#{imUserNameKr},
+		#{imUserNameEn},
+		#{imUserRank},
+		#{imDept},
+		#{imUserMail},
+		#{imPhoneNum},
+		#{imHireDate},
+		#{imUpdate},
+		#{imUserPw},
+		#{imFlag},
+		#{imStatus},
+		#{ercoYmd},
+		#{rtrmYmd},
+		#{birymd}
 		)
 	</insert>
 
@@ -39,37 +39,37 @@
 	<select id="getimKey" resultType="HrListTestVO">
 		select *
 		from STSBOOT.human_resource
-		where IM_KEY = #{im_KEY}
+		where im_key = #{imKey}
 	</select>
 	
 	<!-- 인사정보 업데이트 쿼리 -->
 	<update id = "uptHr" parameterType="HrListTestVO">
 	update STSBOOT.human_resource
 	set
-		IM_KEY = #{IM_KEY},
-		IM_USER_ID = #{IM_USER_ID}, 
-		IM_USER_NAME_KR = #{IM_USER_NAME_KR}, 
-		IM_USER_NAME_EN = #{IM_USER_NAME_EN}, 
-		IM_USER_RANK = #{IM_USER_RANK}, 
-		IM_DEPT = #{IM_DEPT},
-		IM_USER_MAIL = #{IM_USER_MAIL}, 
-		IM_PHONE_NUM = #{IM_PHONE_NUM}, 
-		IM_HIRE_DATE = #{IM_HIRE_DATE}, 
-		IM_UPDATE = #{IM_UPDATE}, 
-		IM_USER_PW = #{IM_USER_PW},
-		IM_FLAG = #{IM_FLAG}, 
-		IM_STATUS = #{IM_STATUS}, 
-		ERCO_YMD = #{ERCO_YMD}, 
-		RTRM_YMD = #{RTRM_YMD}, 
-		BIRYMD = #{BIRYMD}
-	where IM_KEY = #{IM_KEY}	
+		im_key = #{imKey},
+		im_user_id = #{imUserId}, 
+		im_user_name_kr = #{imUserNameKr}, 
+		im_user_name_en = #{imUserNameEn}, 
+		im_user_rank = #{imUserRank}, 
+		im_dept = #{imDept},
+		im_user_mail = #{imUserMail}, 
+		im_phone_num = #{imPhoneNum}, 
+		im_hire_date = #{imHireDate}, 
+		im_update = #{imUpdate}, 
+		im_user_pw = #{imUserPw},
+		im_flag = #{imFlag}, 
+		im_status = #{imStatus}, 
+		erco_ymd = #{ercoYmd}, 
+		rtrm_ymd = #{rtrmYmd}, 
+		birymd = #{birymd}
+	where im_key = #{imKey}	
 	</update>
 	
 	<!-- 인사정보 삭제 쿼리 -->
 	<delete id="delHr" parameterType="int">
 		delete
 		from STSBOOT.human_resource 
-		where IM_KEY = #{IM_KEY}
+		where im_key = #{imKey}
 	</delete>
 	
 	

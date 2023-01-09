@@ -41,7 +41,7 @@ public class HrListController {
 	@RequestMapping(value="/hrInsert")
 	public String insertHR(HrListTestVO hrdata, Model d){
 		
-		d.addAttribute("proc","등록완료");
+		d.addAttribute("status","등록되었습니다");
 		service.insertHR(hrdata);
 		return "hrlist/hrInsert"; 
 	}
@@ -51,7 +51,7 @@ public class HrListController {
 	@RequestMapping(value="/hrDetail")
 	public String getimKey(@RequestParam("imKey") int imKey, Model d){
 		System.out.println("상세 imKey:"+imKey);
-		d.addAttribute("imKey", service.getimKey(imKey));
+		d.addAttribute("HrListTestVO", service.getimKey(imKey));
 		return "hrlist/hrDetail";
 	}
 	
@@ -59,7 +59,7 @@ public class HrListController {
 	// 인사원장 수정 페이지
 	@RequestMapping(value="/uptHr")
 	public String uptHr(HrListTestVO updateHr, Model d){
-		d.addAttribute("proc","수정완료");
+		d.addAttribute("status","수정되었습니다");
 		service.uptHr(updateHr);
 
 		return "hrlist/hrDetail";
@@ -68,7 +68,7 @@ public class HrListController {
 	// 인사원장 삭제 페이지
 	@RequestMapping(value="/delHr")
 	public String delHr(@RequestParam("imKey") int imKey, Model d){
-		d.addAttribute("proc","삭제되었습니다");
+		d.addAttribute("status","삭제되었습니다");
 		service.delHr(imKey);
 		return "hrlist/hrDetail";
 	}

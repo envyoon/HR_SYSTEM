@@ -23,18 +23,17 @@
 
 <script>
 
-// 수정해야하는 부분 22.12.23
-/**
-function goDetail(im_key){
-	// get방식으로 상세화면 이동..
-	location.href="${path}/HRDetail?im_key="+im_key;	
+
+// 상세 페이지로 이동하는 함수.
+function goDetail(imKey){
+	location.href="${path}/hrDetail?imKey="+imKey;	
 }
 
-function insertPage(){
-	
+// 인사정보 등록하는 페이지로 이동하는 함수.
+function insertPage(){	
 	location.href="${path}/HrInsertPage";	
 }
-*/
+
 
 </script>
 
@@ -50,7 +49,7 @@ function insertPage(){
 
 <div class="container">
 
-	<!-- 검색란 -->
+	<!-- 검색란 
 	<form id="frm01" class="form-inline"  method="post">
 		
 		<input type="hidden" name="pageSize" value="5" />
@@ -73,7 +72,8 @@ function insertPage(){
 				    <button class="btn btn-primary" type="submit">검색</button>
 	 	</nav>
 	</form>
-
+	-->
+	
    <table class="table table-hover table-striped">
    	<col width="10%">
    	<col width="10%">
@@ -108,17 +108,20 @@ function insertPage(){
     </tbody>
 	</table>    
     
+    <!--  페이징 처리 
     <ul class="pagination  justify-content-end">
 		  <li class="page-item"><a class="page-link" 
 		  	href="javascript:goPage(${boardSch.startBlock!=1?boardSch.startBlock-1:1})">Previous</a></li>
 		  <c:forEach var="cnt" begin="${boardSch.startBlock}" end="${boardSch.endBlock}">
-		  	<li class="page-item ${cnt==boardSch.curPage?'active':''}"> <!-- 클릭한 현재 페이지 번호 -->
+		  	<li class="page-item ${cnt==boardSch.curPage?'active':''}"> 
 		  		<a class="page-link" href="javascript:goPage(${cnt})">${cnt}</a></li>
 		  </c:forEach>
 		  <li class="page-item"><a class="page-link" 
 		  	href="javascript:goPage(${boardSch.endBlock!=boardSch.pageCount?boardSch.endBlock+1:boardSch.endBlock})">Next</a></li>
 	</ul>
+     -->
     
+    <!-- 등록하기 버튼  -->
     <div class="modal-footer">
 	        <button type="button"  onclick="insertPage()">등록하기</button>
 	</div>
