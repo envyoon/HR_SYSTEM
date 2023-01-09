@@ -14,25 +14,24 @@
 <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.12.4.min.js"></script>
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 
-<link rel="stylesheet" href="resources/a00_com/bootstrap.min.css" >
-<link rel="stylesheet" href="resources/a00_com/jquery-ui.css" >
-<style type="text/css">
-	.input-group-text{width:100%;background-color:linen;color:black;font-weight:bolder;}
-	.input-group-prepend{width:20%;}
-</style>
+<!-- CSS 링크 -->
+<link rel="stylesheet" href="resources/lib/bootstrap.min.css" >
+<link rel="stylesheet" href="resources/lib/jquery-ui.css" >
+<link rel="stylesheet" href="resources/css/main.css" >
+
 
 <script type="text/javascript">
 	
 	$(document).ready(function(){
-		var proc="${proc}";
-		if(proc!=""){
-			alert(proc);
-			if(proc=="등록완료"){
-				location.href="${path}/empList";
+		var status="${status}";
+		if(status!=""){
+			alert(status);
+			if(status=="등록완료"){
+				location.href="${path}/hrListTest";
 			}
 		}			
 		$("#goBack").click(function(){
-			location.href="${path}/empList";
+			location.href="${path}/hrListTest";
 		});
 		
 		$("#insbtn").click(function(){
@@ -49,12 +48,13 @@
 </head>
 <body>
 <div class="jumbotron text-center">
-  <h2>회원정보 등록</h2>
+  <h2>인사 정보 등록</h2>
 
 </div>
 
 	<div class="modal-body">
-			<form id="insfrom" class="form" action="${path}/empInsert"  method="post">
+			<form id="insfrom" class="form" action="${path}/hrInsert"  method="post">
+			
 			<!-- EMPNO, ENAME -->
 		     <div class="row">
 		      	<div class="col">
@@ -97,6 +97,7 @@
 	    	     	      
 		    </form> 
 	      </div>
+	      
 	      <div class="modal-footer">
 	        <button type="button" id="insbtn" class="btn btn-primary">등록</button>
 	        <button type="button" id="goBack" class="btn btn-primary">뒤로가기</button>
