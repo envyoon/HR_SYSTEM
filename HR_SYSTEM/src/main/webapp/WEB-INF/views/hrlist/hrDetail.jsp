@@ -23,7 +23,7 @@
 <script>
 	
 	
-	// proc 값에 따른 삭제/ 수정 처리 부분.
+	// status 값에 따른 삭제 / 수정 처리 부분.
 	$(document).ready(function(){
 		var status="${status}";
 		if(status!=""){
