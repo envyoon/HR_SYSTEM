@@ -21,3 +21,19 @@ ALTER TABLE `human_resource` ADD CONSTRAINT `PK_HUMAN_RESOURCE` PRIMARY KEY (
 	`IM_KEY`
 );
 
+
+-- 시퀀스 생성
+CREATE SEQUENCE STSBOOT.IM_KEY_NUM
+	INCREMENT BY 1
+	START WITH 1
+	MINVALUE 1
+	MAXVALUE 99999;
+
+
+-- 시퀀스 조회
+SELECT *
+  FROM all_sequences
+  WHERE SEQUENCE_NAME = 'IM_KEY_NUM';
+ 
+ -- 시퀀스 쓰는 방법.
+ im_key_num.nextval
