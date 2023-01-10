@@ -43,7 +43,7 @@ public class HrListController {
 		
 		d.addAttribute("status","등록되었습니다");
 		service.insertHR(hrdata);
-		return "hrlist/hrInsert"; 
+		return "hrlist/hrInsertTest"; 
 	}
 	
 	

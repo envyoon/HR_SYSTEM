@@ -31,7 +31,7 @@ function goDetail(imKey){
 
 // 인사정보 등록하는 페이지로 이동하는 함수.
 function insertPage(){	
-	location.href="${path}/HrInsertPage";	
+	location.href="${path}/hrInsertPage";	
 }
 
 

@@ -16,7 +16,7 @@
 	<insert id="insertHR" parameterType="HrListTestVO">
 		INSERT INTO STSBOOT.human_resource (IM_KEY, IM_USER_ID, IM_USER_NAME_KR, IM_USER_NAME_EN, IM_USER_RANK, IM_DEPT, IM_USER_MAIL, IM_PHONE_NUM, IM_HIRE_DATE, IM_UPDATE, IM_USER_PW, IM_FLAG, IM_STATUS, ERCO_YMD, RTRM_YMD, BIRYMD)
 		VALUES(
-		#{imKey},
+		im_key_num.nextval,
 		#{imUserId},
 		#{imUserNameKr},
 		#{imUserNameEn},
