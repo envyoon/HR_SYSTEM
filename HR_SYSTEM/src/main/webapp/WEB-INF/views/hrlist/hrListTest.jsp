@@ -49,31 +49,24 @@ function insertPage(){
 
 <div class="container">
 
-	<!-- 검색란 
-	<form id="frm01" class="form-inline"  method="post">
-		
-		<input type="hidden" name="pageSize" value="5" />
-		<input type="hidden" name="curPage" value="1" />
-			
-	  	<nav class="navbar navbar-expand-sm navbar-dark">
-		    <input class="form-control mr-sm-2" placeholder="검색 내용" name="sch" value="${param.sch}"/>
-		    <select name="skind" class="form-control mr-sm-2">
-		    		<option value="">전체</option>
-					<option>제목</option>
-					<option>작성자</option>
-			</select>
-					
-					<script type="text/javascript">
-						$("[name=skind]").val("${param.skind}")
-					
-					</script>
-					
-					
-				    <button class="btn btn-primary" type="submit">검색</button>
-	 	</nav>
-	</form>
-	-->
+	<!--/* 검색영역 */--> <!-- 추가하여야 함 230111 -->
+	<div class="search_box">
+	    <form id="searchForm" onsubmit="return false;" autocomplete="off">
+	        <div class="sch_group fl">
+	            <select id="searchType" name="searchType" title="검색 유형 선택">
+	                <option value="{HrListTestVO.imUserName}">이름(한글)</option>
+	                <option value="{HrListTestVO.imDept}">부서</option>
+	                <option value="{HrListTestVO.imRank}">직급</option>
+	            </select>
+	            <input type="text" id="keyword" name="keyword" placeholder="키워드를 입력해 주세요." title="키워드 입력" />
+	            <button type="button" class="bt_search" onclick="movePage(1);"><i class="fas fa-search"></i><span class="skip_info">검색</span></button>
+	        </div>
+	    </form>
+	</div>
 	
+	<br>
+	
+	<!-- 페이지 내용 -->
    <table class="table table-hover table-striped">
    	<col width="10%">
    	<col width="10%">

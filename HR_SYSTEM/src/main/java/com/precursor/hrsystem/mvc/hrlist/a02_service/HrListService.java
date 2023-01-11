@@ -28,7 +28,15 @@ public class HrListService {
 	
 	// 인사원장 리스트 비지니스 로직 테스트
 	public ArrayList<HrListTestVO> getHrList(HrListTestVO hrlist) {
-
+		
+		// 요청값으로 초기화면일 때, null을 "" 으로 처리 참고
+		/*
+		 * if(hrlist.getImUserNameKr() == null ) hrlist.setImUserNameKr("");
+		 * if(hrlist.getImDept() == null ) hrlist.setImDept("");
+		 * if(hrlist.getImUserRank() == null ) hrlist.setImUserRank("");
+		 */
+		
+		
 		return dao.getHrList(hrlist);
 	}
 	
