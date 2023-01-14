@@ -49,7 +49,7 @@ function insertPage(){
 
 <div class="container">
 
-	<!--/* 검색영역 */--> <!-- 추가하여야 함 230111 -->
+	<!--/* 검색영역 */--> <!-- 추가하여야 함 230114 -->
 	<div class="search_box">
 	    <form id="searchForm" onsubmit="return false;" autocomplete="off">
 	        <div class="sch_group fl">
