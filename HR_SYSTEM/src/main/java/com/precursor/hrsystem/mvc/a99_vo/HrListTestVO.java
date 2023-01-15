@@ -17,7 +17,7 @@ import lombok.ToString;
 @NoArgsConstructor
 @AllArgsConstructor
 //@EqualsAndHashCode(callSuper = true)
-public class HrListTestVO{
+public class HrListTestVO extends SearchVO{
 	
 	private int imKey;
 	private String imUserId;

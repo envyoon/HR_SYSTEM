@@ -9,8 +9,12 @@
 	<select id="getHrList" resultType="HrListTestVO" parameterType="HrListTestVO">
 		select im_key, im_user_name_kr, im_user_name_en, im_user_rank, im_dept, im_hire_date, birymd
 		from human_resource
-		<if test="skind!=null and skind=='이름'">  <!-- null이 아니고 이름이 선택 되었을 때  -->
+		where 1=1
+		<if test="kind!=null and kind=='이름'">  <!-- null이 아니고 이름이 선택 되었을 때  -->
 		and im_user_name_kr like '%' || #{sch} || '%'
+		</if>
+		<if test="kind!=null and kind=='부서'">  <!-- null이 아니고 부서가 선택 되었을 때  -->
+		and im_dept like '%' || #{sch} || '%'
 		</if>
 		order by im_key asc
 	</select>
