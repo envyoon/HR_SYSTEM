@@ -1,11 +1,8 @@
 package com.precursor.hrsystem.mvc.a99_vo;
 
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.EqualsAndHashCode;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
@@ -13,9 +10,7 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
-@NoArgsConstructor
-@AllArgsConstructor
-public class BoardSch {
+public class PagingVO {
 	// 기본 페이지 처리
 	private int count; // 총건수(DB)
 	private int pageSize; // 한번에 보여줄 데이터 건수(화면 select-요청)
@@ -28,18 +23,10 @@ public class BoardSch {
 	private int blockSize; // 한번에 보여줄 하단의 페이지 블럭
 	private int startBlock; // 블럭의 시작 번호
 	private int endBlock; // 블럭의 마지막 번호
-	// 검색할 내용
-	private String title;
-	private String writer;
 	
-	private String sch;
-	private String skind;
-	
-	
-	private int no; // no
-	private int refno; //refno
-	private int readcnt; // cnt
-	private int level;
 	private int cnt;
 	
+	//검색할 때 조건
+	private String sch; 
+	private String kind;
 }

@@ -49,15 +49,13 @@ function insertPage(){
 
 <div class="container">
 
-	<!--/* 검색영역 */--> <!-- 추가하여야 함 230114 -->
-		
-	<!-- 검색란 -->
+	<!--/* 검색영역 */-->
 	<form id="frm01" class="form-inline"  method="post">
 			
 	  	<nav class="navbar navbar-expand-sm navbar-dark">
 		    <input class="form-control mr-sm-2" placeholder="검색 내용" name="sch" value="${hrlist.sch}"/>
 		    <select name="kind" class="form-control mr-sm-2">
-		    		<option value="">전체</option>
+					<option value=""></option>
 					<option>이름</option>
 					<option>부서</option>
 			</select>
@@ -109,18 +107,34 @@ function insertPage(){
     </tbody>
 	</table>    
     
-    <!--  페이징 처리 
+    <!--  페이징 처리 --> 
     <ul class="pagination  justify-content-end">
-		  <li class="page-item"><a class="page-link" 
-		  	href="javascript:goPage(${boardSch.startBlock!=1?boardSch.startBlock-1:1})">Previous</a></li>
-		  <c:forEach var="cnt" begin="${boardSch.startBlock}" end="${boardSch.endBlock}">
-		  	<li class="page-item ${cnt==boardSch.curPage?'active':''}"> 
-		  		<a class="page-link" href="javascript:goPage(${cnt})">${cnt}</a></li>
+    
+    	  <!-- 페이지 앞으로 이동 -->
+		  <li class="page-item">
+		  	<a class="page-link" href="javascript:goPage(${PagingVO.startBlock!=1?PagingVO.startBlock-1:1})">
+		  		Previous
+		  	</a>
+		  </li>
+		  
+		  <!-- 가운데 페이지 갯수 보여주기  -->
+		  <c:forEach var="cnt" begin="${PagingVO.startBlock}" end="${PagingVO.endBlock}">
+		  	<li class="page-item ${cnt==PagingVO.curPage?'active':''}"> 
+		  		<a class="page-link" href="javascript:goPage(${cnt})">
+		  			${cnt}
+		  		</a>
+		  	</li>
 		  </c:forEach>
-		  <li class="page-item"><a class="page-link" 
-		  	href="javascript:goPage(${boardSch.endBlock!=boardSch.pageCount?boardSch.endBlock+1:boardSch.endBlock})">Next</a></li>
+		  
+		  <!-- 페이지 뒤로 이동 -->
+		  <li class="page-item">
+		  	<a class="page-link" href="javascript:goPage(${PagingVO.endBlock!=PagingVO.pageCount?PagingVO.endBlock+1:PagingVO.endBlock})">
+		  		Next
+		  	</a>
+		  </li>
+		  
 	</ul>
-     -->
+     
     
     <!-- 등록하기 버튼  -->
     <div class="modal-footer">

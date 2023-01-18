@@ -7,19 +7,21 @@ import org.springframework.stereotype.Repository;
 
 
 import com.precursor.hrsystem.mvc.a99_vo.HrListTestVO;
+import com.precursor.hrsystem.mvc.a99_vo.PagingVO;
 
 
 @Mapper
 @Repository
 public interface HrListDao {
 	
-	// 인사원장 리스트 출력.
-	//public ArrayList<HrList> getHrList(HrList sch);
-	
 	// 인사원장 리스트 출력 테스트
-	public ArrayList<HrListTestVO> getHrList(HrListTestVO hrlist);
+	//public ArrayList<HrListTestVO> getHrList(HrListTestVO hrlist);
 	
-	//public int totCnt(BoardSch sch);
+	// 인사원장 리스트 출력.
+	public ArrayList<HrListTestVO> getHrList(PagingVO sch);
+	
+	// 페이징 처리시 전체 갯수 체크 mapper에 있는 쿼리로 넘겨 갯수를 가져온다.
+	public int totCnt(PagingVO sch);
 	
 
 	public HrListTestVO getimKey(int imKey);
