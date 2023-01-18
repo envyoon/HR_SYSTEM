@@ -24,7 +24,9 @@ public class PagingVO {
 	private int startBlock; // 블럭의 시작 번호
 	private int endBlock; // 블럭의 마지막 번호
 	
+	// 페이지 갯수, 번호
 	private int cnt;
+	private int no;
 	
 	//검색할 때 조건
 	private String sch; 

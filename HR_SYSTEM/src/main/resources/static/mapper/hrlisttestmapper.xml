@@ -27,7 +27,7 @@
 			from human_resource 
 			where 1=1
 			<if test="kind!=null and kind=='이름'">  <!-- null이 아니고 이름이 선택 되었을 때  -->
-				and im_user_name_kr like '%' || #{sch} || '%'
+			and im_user_name_kr like '%' || #{sch} || '%'
 			</if>
 			<if test="kind!=null and kind=='부서'">  <!-- null이 아니고 부서가 선택 되었을 때  -->
 				and im_dept like '%' || #{sch} || '%'
@@ -41,9 +41,17 @@
 		from (SELECT A.*, ROWNUM as rn, COUNT(*) OVER()
 			  FROM (SELECT *
 			  		FROM STSBOOT.HUMAN_RESOURCE hr
-			  		ORDER BY IM_KEY DESC) A )
+			  		ORDER BY IM_KEY DESC) A 
+			  WHERE 1=1
+			  <if test="kind!=null and kind=='이름'">  <!-- null이 아니고 이름이 선택 되었을 때  -->
+			  	 and im_user_name_kr like '%' || #{sch} || '%'
+			  </if>
+			  <if test="kind!=null and kind=='부서'">  <!-- null이 아니고 부서가 선택 되었을 때  -->
+				 and im_dept like '%' || #{sch} || '%'
+			  </if>
+			  )
 		where rn BETWEEN #{start} AND #{end}
-		order by im_key asc
+		order by im_key DESC
 	</select>
 	
 	<!-- 인사정보 등록 쿼리 -->

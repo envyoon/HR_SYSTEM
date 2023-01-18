@@ -35,6 +35,12 @@ function insertPage(){
 }
 
 
+// 페이지 이동하는 함수
+function goPage(no){
+	$("[name=curPage]").val(no);
+	$("#frm01").submit();
+}
+
 </script>
 
 
@@ -112,14 +118,14 @@ function insertPage(){
     
     	  <!-- 페이지 앞으로 이동 -->
 		  <li class="page-item">
-		  	<a class="page-link" href="javascript:goPage(${PagingVO.startBlock!=1?PagingVO.startBlock-1:1})">
+		  	<a class="page-link" href="javascript:goPage(${hrlist.startBlock!=1?hrlist.startBlock-1:1})">
 		  		Previous
 		  	</a>
 		  </li>
 		  
 		  <!-- 가운데 페이지 갯수 보여주기  -->
-		  <c:forEach var="cnt" begin="${PagingVO.startBlock}" end="${PagingVO.endBlock}">
-		  	<li class="page-item ${cnt==PagingVO.curPage?'active':''}"> 
+		  <c:forEach var="cnt" begin="${hrlist.startBlock}" end="${hrlist.endBlock}">
+		  	<li class="page-item ${cnt==hrlist.curPage?'active':''}"> 
 		  		<a class="page-link" href="javascript:goPage(${cnt})">
 		  			${cnt}
 		  		</a>
@@ -128,7 +134,7 @@ function insertPage(){
 		  
 		  <!-- 페이지 뒤로 이동 -->
 		  <li class="page-item">
-		  	<a class="page-link" href="javascript:goPage(${PagingVO.endBlock!=PagingVO.pageCount?PagingVO.endBlock+1:PagingVO.endBlock})">
+		  	<a class="page-link" href="javascript:goPage(${hrlist.endBlock!=hrlist.pageCount?hrlist.endBlock+1:hrlist.endBlock})">
 		  		Next
 		  	</a>
 		  </li>
