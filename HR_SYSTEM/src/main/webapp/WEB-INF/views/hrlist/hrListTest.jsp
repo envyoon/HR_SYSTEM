@@ -34,27 +34,21 @@ function insertPage(){
 	location.href="${path}/hrInsertPage";	
 }
 
-
-// 페이지 이동하는 함수
-/* function goPage(no){
-	$("[name=curPage]").val(no);
-	$("#frm01").submit();
-} */
-
-function Previous(no){
+function goPage(no){
 	$("[name=curPage]").val(no);
 	$("#frm01").submit();
 	
-	${hrlist.startBlock!=1?hrlist.startBlock-1:1}
 }
 
-function cnt(no){
-	
-}
-
-function Next(no){
-	
-}
+//ajax
+$(document).ready(function(){
+	var pageSize="${hrlist.pageSize}"
+		$("[name=pageSize]").val(pageSize);
+		$("[name=pageSize]").change(function(){
+			$("[name=curPage]").val(1);
+			$("#frm01").submit();
+	});	
+});
 
 </script>
 
@@ -72,7 +66,20 @@ function Next(no){
 
 	<!--/* 검색영역 */-->
 	<form id="frm01" class="form-inline"  method="post">
-			
+		
+		<!-- 클릭한 페이지 번호 -->
+		<div class="input-group mb-3">
+			<input type="hidden" name="curPage" value="1"/>
+				<div class="input-group-append">
+					<span class="input-group-text">페이지 크기</span>
+					<select name="pageSize" class="form-control">
+						<option>3</option>
+						<option>5</option>
+						<option>10</option>
+					</select>
+				</div>
+		</div>
+		
 	  	<nav class="navbar navbar-expand-sm navbar-dark">
 		    <input class="form-control mr-sm-2" placeholder="검색 내용" name="sch" value="${hrlist.sch}"/>
 		    <select name="kind" class="form-control mr-sm-2">
@@ -90,6 +97,7 @@ function Next(no){
 	 	</nav>
 	</form>
 	
+
 	
 	<br>
 	
@@ -134,7 +142,7 @@ function Next(no){
     	  <!-- 페이지 앞으로 이동 -->
 		  <li class="page-item">
 		  	<!-- <a class="page-link" href="javascript:Previous(${hrlist.startBlock!=1?hrlist.startBlock-1:1})">  -->
-		  	<a class="page-link" href="#" onclick="Previous();">
+		  	<a class="page-link" href="#" onclick="goPage(${hrlist.startBlock!=1?hrlist.startBlock-1:1});">
 		  		Previous
 		  	</a>
 		  </li>
@@ -143,7 +151,7 @@ function Next(no){
 		  <c:forEach var="cnt" begin="${hrlist.startBlock}" end="${hrlist.endBlock}">
 		  	<li class="page-item ${cnt==hrlist.curPage?'active':''}"> 
 		  		<!--  <a class="page-link" href="javascript:goPage(${cnt})"> -->
-		  		<a class="page-link" href="#" onclick="cnt();">
+		  		<a class="page-link" href="#" onclick="goPage(${cnt});">
 		  			${cnt}
 		  		</a>
 		  	</li>
@@ -152,7 +160,7 @@ function Next(no){
 		  <!-- 페이지 뒤로 이동 -->
 		  <li class="page-item">
 		  	<!-- <a class="page-link" href="javascript:Next(${hrlist.endBlock!=hrlist.pageCount?hrlist.endBlock+1:hrlist.endBlock})">  -->
-		  	<a class="page-link" href="#" onclick="Next();">
+		  	<a class="page-link" href="#" onclick="goPage(${hrlist.endBlock!=hrlist.pageCount?hrlist.endBlock+1:hrlist.endBlock});">
 		  		Next
 		  	</a>
 		  </li>
