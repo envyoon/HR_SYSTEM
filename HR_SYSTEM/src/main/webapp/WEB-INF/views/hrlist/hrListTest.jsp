@@ -36,9 +36,24 @@ function insertPage(){
 
 
 // 페이지 이동하는 함수
-function goPage(no){
+/* function goPage(no){
 	$("[name=curPage]").val(no);
 	$("#frm01").submit();
+} */
+
+function Previous(no){
+	$("[name=curPage]").val(no);
+	$("#frm01").submit();
+	
+	${hrlist.startBlock!=1?hrlist.startBlock-1:1}
+}
+
+function cnt(no){
+	
+}
+
+function Next(no){
+	
 }
 
 </script>
@@ -118,7 +133,8 @@ function goPage(no){
     
     	  <!-- 페이지 앞으로 이동 -->
 		  <li class="page-item">
-		  	<a class="page-link" href="javascript:goPage(${hrlist.startBlock!=1?hrlist.startBlock-1:1})">
+		  	<!-- <a class="page-link" href="javascript:Previous(${hrlist.startBlock!=1?hrlist.startBlock-1:1})">  -->
+		  	<a class="page-link" href="#" onclick="Previous();">
 		  		Previous
 		  	</a>
 		  </li>
@@ -126,7 +142,8 @@ function goPage(no){
 		  <!-- 가운데 페이지 갯수 보여주기  -->
 		  <c:forEach var="cnt" begin="${hrlist.startBlock}" end="${hrlist.endBlock}">
 		  	<li class="page-item ${cnt==hrlist.curPage?'active':''}"> 
-		  		<a class="page-link" href="javascript:goPage(${cnt})">
+		  		<!--  <a class="page-link" href="javascript:goPage(${cnt})"> -->
+		  		<a class="page-link" href="#" onclick="cnt();">
 		  			${cnt}
 		  		</a>
 		  	</li>
@@ -134,7 +151,8 @@ function goPage(no){
 		  
 		  <!-- 페이지 뒤로 이동 -->
 		  <li class="page-item">
-		  	<a class="page-link" href="javascript:goPage(${hrlist.endBlock!=hrlist.pageCount?hrlist.endBlock+1:hrlist.endBlock})">
+		  	<!-- <a class="page-link" href="javascript:Next(${hrlist.endBlock!=hrlist.pageCount?hrlist.endBlock+1:hrlist.endBlock})">  -->
+		  	<a class="page-link" href="#" onclick="Next();">
 		  		Next
 		  	</a>
 		  </li>

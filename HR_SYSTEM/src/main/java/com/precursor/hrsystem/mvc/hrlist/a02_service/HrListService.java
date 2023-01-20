@@ -35,7 +35,7 @@ public class HrListService {
 	public ArrayList<HrListTestVO> getHrList(PagingVO pv)  {
 		// 1. 전체 갯수
 		pv.setCount(dao.totCnt(pv));
-		System.out.println("@@@@@@@ totCnt @@@@@@ ===> " +dao.totCnt(pv));
+		
 		
 		// 2. 한번에 보일 페이지 수 초기값 설정
 		// 1) 초기에는 0이기에 5개로 설정 처리
