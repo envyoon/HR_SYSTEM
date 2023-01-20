@@ -36,6 +36,7 @@ public class HrListService {
 		// 1. 전체 갯수
 		pv.setCount(dao.totCnt(pv));
 		
+		System.out.println("totcnt >>>>>>>> " +dao.totCnt(pv));
 		
 		// 2. 한번에 보일 페이지 수 초기값 설정
 		// 1) 초기에는 0이기에 5개로 설정 처리
@@ -50,9 +51,14 @@ public class HrListService {
 		int totPage = (int)(totPage1);
 		pv.setPageCount( totPage );
 		
+		System.out.println("PageCount(totPage) >>>>>>>> " +totPage);
+		
 		// 4. 클릭한 현재 페이지 호출
 		// 현재 페이지 초기값.   0 ==> 1
 		if(pv.getCurPage()==0) { pv.setCurPage(1); }
+		
+		int curPage = pv.getCurPage();
+		System.out.println("curpage >>>>>> " +curPage);
 		
 		/*
 		현재페이지	나올 번호 리스트(5개기준)
@@ -62,21 +68,41 @@ public class HrListService {
 		 * */
 		// 5. 시작번호
 		pv.setStart((pv.getCurPage()-1)*pv.getPageSize()+1);
+		
+		int start = pv.getStart();
+		System.out.println("start >>>> "+start);
+		
+		
 		// 6. 마지막번호 : sql에서 없는 페이지는 로딩이 안되기에 마지막 총페이지 번호 조건을
 		//    넣지 않고 처리했다.
 		pv.setEnd(pv.getCurPage()*pv.getPageSize());
+		
+		int end = pv.getEnd();
+		System.out.println("end >>>>> " +end);
 		
 		// 7 하단의 페이지 block 처리
 		//	1) 기본 block의 크기 지정
 		pv.setBlockSize(5);
 		//	2) 현재 블럭 그룹 번호 : 현재 클릭한 페이지번호/블럭의 크기
 		int curBlockGrpNo = (int)Math.ceil(pv.getCurPage()/(double)pv.getBlockSize());
+		System.out.println("curBlockGrpNo >>>>> "+curBlockGrpNo);
+		
 		// 	3) 블럭 그룹의 시작 페이지 번호
 		pv.setStartBlock((curBlockGrpNo-1)*pv.getBlockSize()+1);
+		
+		int setStartBlock = pv.getStartBlock();
+		System.out.println("setStartBlock >>>>> "+setStartBlock);
+		
 		//  4) 블럭 그룹의 마지막 페이지 번호
 		//     총페이지수 보다 크면 총 페이지수를 마지막 페이지 번호.
 		int endBlockGrpNo = curBlockGrpNo*pv.getBlockSize();
+		System.out.println("endBlockGrpNo >>>>> "+endBlockGrpNo);
+		
 		pv.setEndBlock(endBlockGrpNo>pv.getPageCount()?pv.getPageCount():endBlockGrpNo);
+		
+		
+		System.out.println("getHrList >>>> "+dao.getHrList(pv));
+		
 		
 		return dao.getHrList(pv);
 	}
