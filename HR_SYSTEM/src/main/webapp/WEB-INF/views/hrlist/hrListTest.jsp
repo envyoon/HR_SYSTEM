@@ -34,21 +34,23 @@ function insertPage(){
 	location.href="${path}/hrInsertPage";	
 }
 
-function goPage(no){
-	$("[name=curPage]").val(no);
+function goPage(imKey){
+	$("[name=curPage]").val(imKey);
+	console.log(cnt);
 	$("#frm01").submit();
 	
 }
 
 //ajax
 $(document).ready(function(){
-	var pageSize="${hrlist.pageSize}"
+	var pageSize="${PagingVO.pageSize}"
 		$("[name=pageSize]").val(pageSize);
 		$("[name=pageSize]").change(function(){
 			$("[name=curPage]").val(1);
 			$("#frm01").submit();
 	});	
 });
+
 
 </script>
 
@@ -64,21 +66,17 @@ $(document).ready(function(){
 
 <div class="container">
 
+	
+	<!-- 클릭한 페이지 번호 -->
+	<!-- 이거 자꾸 오류남 확인해야함 -->
+	<input type="hidden" name="curPage" value="1"/>
+	<input type="hidden" name="pageSize" value="5" />
+	
+
 	<!--/* 검색영역 */-->
 	<form id="frm01" class="form-inline"  method="post">
 		
-		<!-- 클릭한 페이지 번호 -->
-		<div class="input-group mb-3">
-			<input type="hidden" name="curPage" value="1"/>
-				<div class="input-group-append">
-					<span class="input-group-text">페이지 크기</span>
-					<select name="pageSize" class="form-control">
-						<option>3</option>
-						<option>5</option>
-						<option>10</option>
-					</select>
-				</div>
-		</div>
+	
 		
 	  	<nav class="navbar navbar-expand-sm navbar-dark">
 		    <input class="form-control mr-sm-2" placeholder="검색 내용" name="sch" value="${hrlist.sch}"/>
@@ -87,11 +85,7 @@ $(document).ready(function(){
 					<option>이름</option>
 					<option>부서</option>
 			</select>
-			
-			<script type="text/javascript">
-				$("[name=kind]").val("${hrlist.kind}")
-			
-			</script>
+
 					
 		    <button class="btn btn-primary" type="submit">검색</button>
 	 	</nav>
@@ -112,6 +106,7 @@ $(document).ready(function(){
    	<col width="10%">
     <thead>
       <tr class="table-success text-center">
+      	<th>번호</th>
         <th>사번</th>
         <th>이름(한글)</th>
         <th>이름(영문)</th>
@@ -124,6 +119,7 @@ $(document).ready(function(){
     <tbody class="text-center">
     	<c:forEach var="hrlist" items="${hrdata}">
 	    	<tr ondblclick="goDetail(${hrlist.imKey})">
+	    		<td>${hrlist.cnt}</td>
 	    		<td>${hrlist.imKey}</td>
 	    		<td>${hrlist.imUserNameKr}</td>
 	    		<td>${hrlist.imUserNameEn}</td>
@@ -142,14 +138,14 @@ $(document).ready(function(){
     	  <!-- 페이지 앞으로 이동 -->
 		  <li class="page-item">
 		  	<!-- <a class="page-link" href="javascript:Previous(${hrlist.startBlock!=1?hrlist.startBlock-1:1})">  -->
-		  	<a class="page-link" href="#" onclick="goPage(${hrlist.startBlock!=1?hrlist.startBlock-1:1});">
+		  	<a class="page-link" href="#" onclick="goPage(${pagingVO.startBlock!=1?pagingVO.startBlock-1:1});">
 		  		Previous
 		  	</a>
 		  </li>
 		  
 		  <!-- 가운데 페이지 갯수 보여주기  -->
-		  <c:forEach var="cnt" begin="${hrlist.startBlock}" end="${hrlist.endBlock}">
-		  	<li class="page-item ${cnt==hrlist.curPage?'active':''}"> 
+		  <c:forEach var="cnt" begin="${pagingVO.startBlock}" end="${pagingVO.endBlock}">
+		  	<li class="page-item ${cnt==pagingVO.curPage?'active':''}"> 
 		  		<!--  <a class="page-link" href="javascript:goPage(${cnt})"> -->
 		  		<a class="page-link" href="#" onclick="goPage(${cnt});">
 		  			${cnt}
@@ -157,10 +153,12 @@ $(document).ready(function(){
 		  	</li>
 		  </c:forEach>
 		  
+		  
+		  
 		  <!-- 페이지 뒤로 이동 -->
 		  <li class="page-item">
 		  	<!-- <a class="page-link" href="javascript:Next(${hrlist.endBlock!=hrlist.pageCount?hrlist.endBlock+1:hrlist.endBlock})">  -->
-		  	<a class="page-link" href="#" onclick="goPage(${hrlist.endBlock!=hrlist.pageCount?hrlist.endBlock+1:hrlist.endBlock});">
+		  	<a class="page-link" href="#" onclick="goPage(${pagingVO.endBlock!=pagingVO.pageCount?pagingVO.endBlock+1:pagingVO.endBlock});">
 		  		Next
 		  	</a>
 		  </li>

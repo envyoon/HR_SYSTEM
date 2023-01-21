@@ -83,6 +83,10 @@ public class HrListService {
 		// 7 하단의 페이지 block 처리
 		//	1) 기본 block의 크기 지정
 		pv.setBlockSize(5);
+		
+		int blocksize = pv.getBlockSize();
+		System.out.println("blocksize >>>>>>>>> " +blocksize);
+		
 		//	2) 현재 블럭 그룹 번호 : 현재 클릭한 페이지번호/블럭의 크기
 		int curBlockGrpNo = (int)Math.ceil(pv.getCurPage()/(double)pv.getBlockSize());
 		System.out.println("curBlockGrpNo >>>>> "+curBlockGrpNo);
@@ -100,8 +104,14 @@ public class HrListService {
 		
 		pv.setEndBlock(endBlockGrpNo>pv.getPageCount()?pv.getPageCount():endBlockGrpNo);
 		
+		int endblock = pv.getEndBlock();
+		System.out.println("endblock >>>>>> "+endblock);
 		
 		System.out.println("getHrList >>>> "+dao.getHrList(pv));
+		
+//		for(int i=1; i<=5; i++) {
+//			pv.setNo(i);
+//		}
 		
 		
 		return dao.getHrList(pv);
