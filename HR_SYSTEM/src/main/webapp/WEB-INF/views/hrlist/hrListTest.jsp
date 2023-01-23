@@ -149,8 +149,12 @@ $(document).ready(function(){
 		  		<!--  <a class="page-link" href="javascript:goPage(${cnt})"> -->
 		  		<a class="page-link" href="#" onclick="goPage(${cnt});">
 		  			${cnt}
+		  			<script>
+						console.count();
+					</script>
 		  		</a>
 		  	</li>
+		  	
 		  </c:forEach>
 		  
 		  
