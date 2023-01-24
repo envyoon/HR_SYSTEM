@@ -44,6 +44,7 @@ function goPage(imKey){
 //ajax
 $(document).ready(function(){
 	var pageSize="${PagingVO.pageSize}"
+	console.log(pageSize);
 		$("[name=pageSize]").val(pageSize);
 		$("[name=pageSize]").change(function(){
 			$("[name=curPage]").val(1);
@@ -149,12 +150,8 @@ $(document).ready(function(){
 		  		<!--  <a class="page-link" href="javascript:goPage(${cnt})"> -->
 		  		<a class="page-link" href="#" onclick="goPage(${cnt});">
 		  			${cnt}
-		  			<script>
-						console.count();
-					</script>
 		  		</a>
 		  	</li>
-		  	
 		  </c:forEach>
 		  
 		  
