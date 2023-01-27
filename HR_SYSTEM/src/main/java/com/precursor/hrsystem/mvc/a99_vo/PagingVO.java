@@ -9,7 +9,6 @@ import lombok.ToString;
 @Data
 @Getter
 @Setter
-@ToString
 public class PagingVO {
 	// 기본 페이지 처리
 	private int count; // 총건수(DB)
