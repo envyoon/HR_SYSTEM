@@ -107,7 +107,6 @@ $(document).ready(function(){
    	<col width="10%">
     <thead>
       <tr class="table-success text-center">
-      	<th>번호</th>
         <th>사번</th>
         <th>이름(한글)</th>
         <th>이름(영문)</th>
@@ -120,7 +119,6 @@ $(document).ready(function(){
     <tbody class="text-center">
     	<c:forEach var="hrlist" items="${hrdata}">
 	    	<tr ondblclick="goDetail(${hrlist.imKey})">
-	    		<td>${hrlist.cnt}</td>
 	    		<td>${hrlist.imKey}</td>
 	    		<td>${hrlist.imUserNameKr}</td>
 	    		<td>${hrlist.imUserNameEn}</td>
