@@ -136,17 +136,17 @@ $(document).ready(function(){
     <!--  페이징 처리 --> 
     <ul class="pagination  justify-content-end">
     
-    	  <!-- 페이지 앞으로 이동 -->
+    	  <%-- <!-- 페이지 앞으로 이동 -->
 		  <li class="page-item">
 		  	<!-- <a class="page-link" href="javascript:Previous(${hrlist.startBlock!=1?hrlist.startBlock-1:1})">  -->
-		  	<a class="page-link" href="#" onclick="goPage(${PagingVO.startBlock!=1?PagingVO.startBlock-1:1});">
+		  	<a class="page-link" href="#" onclick="goPage(${hrdata.startBlock!=1?hrdata.startBlock-1:1});">
 		  		Previous
 		  	</a>
 		  </li>
-		  
+		  --%>
 		  <!-- 가운데 페이지 갯수 보여주기  -->
-		  <c:forEach var="cnt" begin="${PagingVO.startBlock}" end="${PagingVO.endBlock}">
-		  	<li class="page-item ${cnt==PagingVO.curPage?'active':''}"> 
+		  <c:forEach var="cnt" items="${hrdata}" begin="${hrdata.startBlock}" end="${hrdata.endBlock}">
+		  	<li class="page-item ${cnt==hrdata.curPage?'active':''}"> 
 		  		<!--  <a class="page-link" href="javascript:goPage(${cnt})"> -->
 		  		<a class="page-link" href="#" onclick="goPage(${cnt});">
 		  			${cnt}
@@ -155,14 +155,16 @@ $(document).ready(function(){
 		  </c:forEach>
 		  
 		  
-		  
+		  <%--
 		  <!-- 페이지 뒤로 이동 -->
 		  <li class="page-item">
 		  	<!-- <a class="page-link" href="javascript:Next(${hrlist.endBlock!=hrlist.pageCount?hrlist.endBlock+1:hrlist.endBlock})">  -->
-		  	<a class="page-link" href="#" onclick="goPage(${PagingVO.endBlock!=PagingVO.pageCount?PagingVO.endBlock+1:PagingVO.endBlock});">
+		  	<a class="page-link" href="#" onclick="goPage(${hrdata.endBlock!=hrdata.pageCount?hrdata.endBlock+1:hrdata.endBlock});">
 		  		Next
 		  	</a>
-		  </li>
+		  </li> 
+		   --%>
+		  
 		  
 	</ul>
      
@@ -176,6 +178,16 @@ $(document).ready(function(){
     
 </div>
 
+<script>
+	var hrdata = "${hrdata}";
+	
+	for(var i=0; i <hrdata.length ; i++){
+		console.log(hrdata);
+	}
+	
+	console.log(hrdata);
+	console.log(typeof(hrdata));
+</script>
     
 </body>
 </html>

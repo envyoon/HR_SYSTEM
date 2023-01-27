@@ -13,7 +13,6 @@ import lombok.ToString;
 @Data
 @Getter
 @Setter
-@ToString
 @NoArgsConstructor
 @AllArgsConstructor
 //@EqualsAndHashCode(callSuper = true)

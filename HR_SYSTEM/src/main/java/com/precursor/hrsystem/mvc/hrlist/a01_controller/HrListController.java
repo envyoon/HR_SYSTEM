@@ -1,17 +1,22 @@
 package com.precursor.hrsystem.mvc.hrlist.a01_controller;
 
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 
 import com.precursor.hrsystem.mvc.a99_vo.HrListTestVO;
 import com.precursor.hrsystem.mvc.hrlist.a02_service.HrListService;
 
 
-@Controller
+@RestController
 @RequestMapping("/")
 public class HrListController {
 	
@@ -21,12 +26,10 @@ public class HrListController {
 	
 	// 인사원장 리스트 controller
 	@RequestMapping(value="/hrListTest")
-	public String hrList(HrListTestVO hrlist, Model d) {
+	public ResponseEntity<HrListTestVO> hrList(HrListTestVO hrlist, Model d) {
+		ResponseEntity<HrListTestVO> hrDataList = service.getHrList(hrlist);
 		
-		d.addAttribute("hrdata", service.getHrList(hrlist));
-		
-		
-		return "hrlist/hrListTest";
+		return ResponseEntity.status(HttpStatus.OK).body(hrDataList);
 	}
 	
 	

@@ -1,8 +1,10 @@
 package com.precursor.hrsystem.mvc.hrlist.a02_service;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 
@@ -32,7 +34,7 @@ public class HrListService {
 //		return dao.getHrList(hrlist);
 //	}
 	
-	public ArrayList<HrListTestVO> getHrList(PagingVO pv)  {
+	public ResponseEntity<HrListTestVO> getHrList(PagingVO pv)  {
 		// 1. 전체 갯수
 		pv.setCount(dao.totCnt(pv));
 		
@@ -108,6 +110,7 @@ public class HrListService {
 		System.out.println("endblock >>>>>> "+endblock);
 		
 		System.out.println("getHrList >>>> "+dao.getHrList(pv));
+		
 		
 //		for(int i=1; i<=5; i++) {
 //			pv.setNo(i);
