@@ -36,12 +36,11 @@
 	
 	
 	<!-- 인사정보 가져오기 (페이징 처리 추가된 것) -->
-	<select id="getHrList" resultType="HrListTestVO" parameterType="PagingVO">
-		select ROWNUM as rn, im_key, im_user_name_kr, im_user_name_en, im_user_rank, im_dept, im_hire_date, birymd
-		from (SELECT A.*, ROWNUM as rn, COUNT(*) OVER()
-			  FROM (SELECT *
-			  		FROM STSBOOT.HUMAN_RESOURCE hr
-			  		ORDER BY IM_KEY DESC) A 
+	<select id="getHrList" resultType="HrListTestVO" parameterType="HrListTestVO">
+		select * 
+		from (
+			  SELECT ROWNUM cnt, hr.im_key, hr.im_user_name_kr, hr.im_user_name_en, hr.im_user_rank, hr.im_dept, hr.im_hire_date, hr.birymd
+			  FROM STSBOOT.HUMAN_RESOURCE hr
 			  WHERE 1=1
 			  <if test="kind!=null and kind=='이름'">  <!-- null이 아니고 이름이 선택 되었을 때  -->
 			  	 and im_user_name_kr like '%' || #{sch} || '%'
@@ -49,9 +48,9 @@
 			  <if test="kind!=null and kind=='부서'">  <!-- null이 아니고 부서가 선택 되었을 때  -->
 				 and im_dept like '%' || #{sch} || '%'
 			  </if>
+			  ORDER BY cnt DESC
 			  )
-		where rn BETWEEN #{start} AND #{end}
-		order by im_key DESC
+		where cnt BETWEEN #{start} AND #{end}
 	</select>
 	
 	<!-- 인사정보 등록 쿼리 -->

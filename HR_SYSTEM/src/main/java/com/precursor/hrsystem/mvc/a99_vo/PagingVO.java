@@ -1,18 +1,23 @@
 package com.precursor.hrsystem.mvc.a99_vo;
 
 
+
+
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
-import lombok.ToString;
 
 @Data
 @Getter
 @Setter
+@NoArgsConstructor
+@AllArgsConstructor
 public class PagingVO {
 	// 기본 페이지 처리
 	private int count; // 총건수(DB)
-	private int pageSize; // 한번에 보여줄 데이터 건수(화면 select-요청)
+	private int pageSize = 5; // 한번에 보여줄 데이터 건수(화면 select-요청)
 	private int pageCount; // 총 페이지 수 (총건수/한번에 보여줄 데이터 건수)
 	private int curPage; // 클릭한 현재 페이지 번호
 	private int start; // DB에 넘길 시작 번호
