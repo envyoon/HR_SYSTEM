@@ -3,7 +3,7 @@
     import="java.util.*"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<c:set var="path" value="${pageContext.request.contextPath }"/>
+
 <fmt:requestEncoding value="utf-8"/>   
 <!DOCTYPE html>
 <html>
@@ -39,12 +39,12 @@ function insertPage(){
 function goPage(im_key){
 	$("[name=curPage]").val(im_key);
 	$("#frm01").submit();
-	
-}
+}	
+
 
 //ajax
 $(document).ready(function(){
-	var pageSize="${PagingVO.pageSize}"
+	var pageSize="${pagingVO.pageSize}"
 	console.log(pageSize);
 		$("[name=pageSize]").val(pageSize);
 		$("[name=pageSize]").change(function(){
@@ -77,8 +77,8 @@ $(document).ready(function(){
 		
 	<!-- 클릭한 페이지 번호 -->
 	<!-- 이거 자꾸 오류남 확인해야함 -->
-	<input type="hidden" name="curPage" value="1"/>
-	<!-- <input type="hidden" name="pageSize" value="5" /> -->
+	<input type="hidden" name="curPage" value=1/>
+	<input type="hidden" name="pageSize" value=5 />
 		
 	  	<nav class="navbar navbar-expand-sm navbar-dark">
 		    <input class="form-control mr-sm-2" placeholder="검색 내용" name="sch" value="${hrlist.sch}"/>
@@ -137,17 +137,15 @@ $(document).ready(function(){
     
    		  <!-- 페이지 앞으로 이동 -->
 		  <li class="page-item">
-		  	<a class="page-link" href="javascript:Previous(${hrlist.startBlock!=1?hrlist.startBlock-1:1})">
-		  	<%-- <a class="page-link" href="#" onclick="goPage(${cnt.startBlock!=1?cnt.startBlock-1:1});"> --%>
+		  	<a class="page-link" href="javascript:goPage(${pagingVO.startBlock!=1?pagingVO.startBlock-1:1})">
 		  		Previous
 		  	</a>
 		  </li>
 		  
 		  <!-- 가운데 페이지 갯수 보여주기  -->
-		  <c:forEach var="cnt" items="hrdata" begin="${cnt.startBlock}" end="${cnt.endBlock}">
-		  	<li class="page-item ${cnt==cnt.curPage?'active':''}"> 
-		  		<a class="page-link" href="javascript:goPage(${cnt})">
-		  		<%-- <a class="page-link" href="#" onclick="goPage(${cnt});"> --%>
+		  <c:forEach var="cnt" begin="${pagingVO.startBlock}" end="${pagingVO.endBlock}">
+		  	<li class="page-item ${cnt==pagingVO.curPage?'active':''}"> 
+		  		<a class="page-link" href="#" onclick="goPage(${cnt});">
 		  			${cnt}
 		  		</a>
 		  	</li>
@@ -155,8 +153,7 @@ $(document).ready(function(){
 		  
 		  <!-- 페이지 뒤로 이동 -->
 		  <li class="page-item">
-		  	<a class="page-link" href="javascript:Next(${cnt.endBlock!=cnt.pageCount?cnt.endBlock+1:cnt.endBlock})">
-		  	<%-- <a class="page-link" href="#" onclick="goPage(${pagingvo.endBlock!=pagingvo.pageCount?pagingvo.endBlock+1:pagingvo.endBlock});"> --%>
+		  	<a class="page-link" href="javascript:goPage(${pagingVO.endBlock!=pagingVO.pageCount?pagingVO.endBlock+1:pagingVO.endBlock})">
 		  		Next
 		  	</a>
 		  </li>
@@ -172,16 +169,7 @@ $(document).ready(function(){
     
     
 </div>
-<script type="text/javascript">
-	var paging = "${cnt.startBlock}";
-	var hrdata = "${hrdata}";
-	var hrlist = "${hrlist}";
-	
-	console.log(paging);
-	console.log(hrdata);
-	console.log(hrlist);
-	console.log(cnt);
-</script>
+
     
 </body>
 </html>

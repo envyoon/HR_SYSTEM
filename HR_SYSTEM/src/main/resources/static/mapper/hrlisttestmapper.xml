@@ -36,7 +36,7 @@
 	
 	
 	<!-- 인사정보 가져오기 (페이징 처리 추가된 것) -->
-	<select id="getHrList" resultType="HrListTestVO" parameterType="HrListTestVO">
+	<select id="getHrList" resultType="HrListTestVO" parameterType="PagingVO">
 		select * 
 		from (
 			  SELECT ROWNUM cnt, hr.im_key, hr.im_user_name_kr, hr.im_user_name_en, hr.im_user_rank, hr.im_dept, hr.im_hire_date, hr.birymd
@@ -48,7 +48,7 @@
 			  <if test="kind!=null and kind=='부서'">  <!-- null이 아니고 부서가 선택 되었을 때  -->
 				 and im_dept like '%' || #{sch} || '%'
 			  </if>
-			  ORDER BY cnt DESC
+			  ORDER BY im_key DESC
 			  )
 		where cnt BETWEEN #{start} AND #{end}
 	</select>
