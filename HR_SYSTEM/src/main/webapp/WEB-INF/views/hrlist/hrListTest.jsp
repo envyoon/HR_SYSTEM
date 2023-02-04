@@ -77,8 +77,8 @@ $(document).ready(function(){
 		
 	<!-- 클릭한 페이지 번호 -->
 	<!-- 이거 자꾸 오류남 확인해야함 -->
-	<input type="hidden" name="curPage" value=1/>
-	<input type="hidden" name="pageSize" value=5 />
+	<input type="hidden" name="curPage" value="1" />
+	<input type="hidden" name="pageSize" value="5" />
 		
 	  	<nav class="navbar navbar-expand-sm navbar-dark">
 		    <input class="form-control mr-sm-2" placeholder="검색 내용" name="sch" value="${hrlist.sch}"/>
@@ -87,7 +87,10 @@ $(document).ready(function(){
 					<option>이름</option>
 					<option>부서</option>
 			</select>
-
+			
+			<script type="text/javascript">
+					$("[name=kind]").val("${hrlist.kind}")
+			</script>
 					
 		    <button class="btn btn-primary" type="submit">검색</button>
 	 	</nav>
