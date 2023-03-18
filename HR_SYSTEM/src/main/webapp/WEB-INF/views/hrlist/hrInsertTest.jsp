@@ -58,7 +58,7 @@
 </div>
 
 	<div class="modal-body">
-			<form id="insform" class="form" action="${path}/hrInsert"  method="post">
+			<form id="insform" class="form" action="${path}/hrInsertTest"  method="post">
 			
 			<!-- IM_USER_ID, IM_USER_NAME_KR -->
 		     <div class="row">

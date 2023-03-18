@@ -28,12 +28,12 @@
 
 // 상세 페이지로 이동하는 함수.
 function goDetail(imKey){
-	location.href="${path}/hrDetail?imKey="+imKey;	
+	location.href="${path}/hrDetailTest?imKey="+imKey;	
 }
 
 // 인사정보 등록하는 페이지로 이동하는 함수.
 function insertPage(){	
-	location.href="${path}/hrInsertPage";	
+	location.href="${path}/hrInsertPageTest";	
 }
 
 function goPage(im_key){

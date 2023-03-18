@@ -47,7 +47,7 @@
 		// 수정 버튼
 		$("#uptBtn").click(function(){
 			if(confirm("수정하시겠습니까?")){
-				$("form").attr("action", "${path}/uptHr");
+				$("form").attr("action", "${path}/uptHrTest");
 				$("form").submit();
 			}
 		}); 
@@ -55,7 +55,7 @@
 		// 삭제 버튼
 		$("#delBtn").click(function(){
 			if(confirm("삭제하시겠습니까?")){
-				location.href="${path}/delHr?imKey="+$("[name=imKey]").val();
+				location.href="${path}/delHrTest?imKey="+$("[name=imKey]").val();
 			}
 		});
 		

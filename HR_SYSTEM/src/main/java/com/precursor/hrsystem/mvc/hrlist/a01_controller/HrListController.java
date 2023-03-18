@@ -32,7 +32,7 @@ public class HrListController {
 	
 	
 	// 인사원장 등록 페이지
-	@RequestMapping(value="/hrInsertPage")
+	@RequestMapping(value="/hrInsertPageTest")
 	public String insertPage() {
 		
 		return "hrlist/hrInsertTest";
@@ -40,7 +40,7 @@ public class HrListController {
 	
 	
 	// 인사원장 등록
-	@RequestMapping(value="/hrInsert")
+	@RequestMapping(value="/hrInsertTest")
 	public String insertHR(HrListTestVO hrdata, Model d){
 		
 		d.addAttribute("status","등록되었습니다");
@@ -50,7 +50,7 @@ public class HrListController {
 	
 	
 	// 인사원장 상세 정보 페이지
-	@RequestMapping(value="/hrDetail")
+	@RequestMapping(value="/hrDetailTest")
 	public String getimKey(@RequestParam("imKey") int imKey, Model d){
 		System.out.println("상세 imKey:"+imKey);
 		d.addAttribute("HrListTestVO", service.getimKey(imKey));
@@ -59,7 +59,7 @@ public class HrListController {
 	
 	
 	// 인사원장 수정 페이지
-	@RequestMapping(value="/uptHr")
+	@RequestMapping(value="/uptHrTest")
 	public String uptHr(HrListTestVO updateHr, Model d){
 		d.addAttribute("status","수정되었습니다");
 		service.uptHr(updateHr);
@@ -68,7 +68,7 @@ public class HrListController {
 	}
 	
 	// 인사원장 삭제 페이지
-	@RequestMapping(value="/delHr")
+	@RequestMapping(value="/delHrTest")
 	public String delHr(@RequestParam("imKey") int imKey, Model d){
 		d.addAttribute("status","삭제되었습니다");
 		service.delHr(imKey);
