@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.precursor.hrsystem.mvc.hrlist.a03_dao.HrDao">
+
+
+	<!-- 인사 정보 갯수를 체크하는 쿼리 --> 
+	<select id="totCnt" parameterType="PagingVO" resultType="int">
+			select count(*)
+			from HRSYS 
+			where 1=1
+			<if test="kind!=null and kind=='이름'">  <!-- null이 아니고 이름이 선택 되었을 때  -->
+			and USR_LOGIN like '%' || #{sch} || '%'
+			</if>
+			<if test="kind!=null and kind=='부서'">  <!-- null이 아니고 부서가 선택 되었을 때  -->
+				and USR_UDF_DEPT_CEN_NAME like '%' || #{sch} || '%'
+			</if>
+	 </select>
+	
+	
+	<!-- 인사정보 가져오기 (페이징 처리 추가된 것) -->
+	<select id="getHrList" resultType="HrList" parameterType="PagingVO">
+		select * 
+		from (
+			  SELECT ROWNUM cnt, hr.USR_LOGIN, hr.USR_UDF_KORNAME, hr.USR_UDF_ENGNAME, hr.USR_LAST_NAME, hr.USR_UDF_DEPT_CEN_NAME, hr.USR_START_DATE
+			  FROM HRSYS hr
+			  WHERE 1=1
+			  <if test="kind!=null and kind=='이름'">  <!-- null이 아니고 이름이 선택 되었을 때  -->
+			  	 and USR_UDF_KORNAME like '%' || #{sch} || '%'
+			  </if>
+			  <if test="kind!=null and kind=='부서'">  <!-- null이 아니고 부서가 선택 되었을 때  -->
+				 and USR_UDF_DEPT_CEN_NAME like '%' || #{sch} || '%'
+			  </if>
+			  ORDER BY USR_UDF_POS_CODE DESC
+			  )
+		where cnt BETWEEN #{start} AND #{end}
+	</select>
+	
+	<!-- 인사정보 등록 쿼리 -->
+	<insert id="insertHR" parameterType="HrList">
+		INSERT INTO HRSYS (
+			USR_UDF_RETIRE_STATUS,
+			USR_LOGIN,
+			USR_START_DATE,
+			USR_END_DATE,
+			USR_LAST_NAME,
+			USR_FIRST_NAME,
+			USR_UDF_KORNAME,
+			USR_UDF_ENGNAME,
+			USR_UDF_DEPT_CEN_CODE,
+			USR_UDF_DEPT_CEN_NAME,
+			USR_UDF_USER_CLASSI_NAME,
+			USR_UDF_USER_CLASSI_CODE,
+			USR_EMAIL,
+			USR_UDF_POS_CODE,
+			USR_UDF_AUTOPASS_POS_NAME,
+			USR_UDF_AUTOPASS_POS_CODE,
+			USR_UDF_AUTOPASS_LOCATION_CODE,
+			USR_UDF_AUTOPASS_LOCATION_NAME,
+			USR_DESCRIPTION,
+			USR_UPDATE_DATE
+		)
+		VALUES(
+			'Y',
+			#{usrLogin},
+			#{usrStartDate},
+			#{usrEndDate},
+			#{usrLastName},
+			#{usrFirstName},
+			#{usrUdfKorname},
+			#{usrUdfEngname},
+			#{usrUdfDeptCenCode},
+			#{usrUdfDeptCenName},
+			#{usrUdfUserClassiName},
+			#{usrUdfUserClassiCode},
+			#{usrEmail},
+			#{usrUdfPosCode},
+			#{usrUdfAutopassPosName},
+			#{usrUdfAutopassPosCode},
+			#{usrUdfAutopassLocationCode},
+			#{usrUdfAutopassLocationName},
+			#{usrDescription},
+			#{usrUpdateDate}
+		)
+	</insert>
+
+	<!-- 인사정보 상세 가져오는 쿼리 -->
+	<select id="getimKey" resultType="HrList">
+		select *
+		from HRSYS
+		where USR_LOGIN = #{usrLogin}
+	</select>
+	
+	<!-- 인사정보 업데이트 쿼리 -->
+	<update id = "uptHr" parameterType="HrList">
+	update HRSYS
+	set
+		USR_UDF_RETIRE_STATUS           = 'Y',
+		USR_LOGIN                       =  #{usrLogin},
+		USR_START_DATE                  =  #{usrStartDate},
+		USR_END_DATE                    =  #{usrEndDate},
+		USR_LAST_NAME                   =  #{usrLastName},
+		USR_FIRST_NAME                  =  #{usrFirstName},
+		USR_UDF_KORNAME                 =  #{usrUdfKorname},
+		USR_UDF_ENGNAME                 =  #{usrUdfEngname},
+		USR_UDF_DEPT_CEN_CODE           =  #{usrUdfDeptCenCode},
+		USR_UDF_DEPT_CEN_NAME           =  #{usrUdfDeptCenName},
+		USR_UDF_USER_CLASSI_NAME        =  #{usrUdfUserClassiName},
+		USR_UDF_USER_CLASSI_CODE        =  #{usrUdfUserClassiCode},
+		USR_EMAIL                       =  #{usrEmail},
+		USR_UDF_POS_CODE                =  #{usrUdfPosCode},
+		USR_UDF_AUTOPASS_POS_NAME       =  #{usrUdfAutopassPosName},
+		USR_UDF_AUTOPASS_POS_CODE       =  #{usrUdfAutopassPosCode},
+		USR_UDF_AUTOPASS_LOCATION_CODE  =  #{usrUdfAutopassLocationCode},
+		USR_UDF_AUTOPASS_LOCATION_NAME  =  #{usrUdfAutopassLocationName},
+		USR_DESCRIPTION                 =  #{usrDescription},
+		USR_UPDATE_DATE                 =  #{usrUpdateDate}
+	where USR_LOGIN = #{usrLogin}	
+	</update>
+	
+	<!-- 인사정보 삭제 쿼리 -->
+	<delete id="delHr" parameterType="String">
+		delete
+		from HRSYS 
+		where USR_LOGIN = #{usrLogin}
+	</delete>
+	
+	
+</mapper>

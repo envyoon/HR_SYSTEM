@@ -108,28 +108,25 @@ $(document).ready(function(){
    	<col width="10%">
    	<col width="10%">
    	<col width="10%">
-   	<col width="10%">
     <thead>
       <tr class="table-success text-center">
-        <th>사번</th>
+        <th>아이디</th>
         <th>이름(한글)</th>
         <th>이름(영문)</th>
-        <th>직급</th>
+        <th>LastName</th>
         <th>부서</th>
         <th>입사날짜</th>
-        <th>생년월일</th>
       </tr>
     </thead>	
     <tbody class="text-center">
     	<c:forEach var="hrlist" items="${hrdata}">
-	    	<tr ondblclick="goDetail(${hrlist.imKey})">
-	    		<td>${hrlist.imKey}</td>
-	    		<td>${hrlist.imUserNameKr}</td>
-	    		<td>${hrlist.imUserNameEn}</td>
-	    		<td>${hrlist.imUserRank}</td>
-	    		<td>${hrlist.imDept}</td>
-	    		<td><fmt:formatDate value="${hrlist.imHireDate}"/></td>
-	    		<td><fmt:formatDate value="${hrlist.birymd}"/></td>
+	    	<tr ondblclick="goDetail(${hrlist.usrLogin})">
+	    		<td>${hrlist.usrLogin}</td>
+	    		<td>${hrlist.usrUdfKorname}</td>
+	    		<td>${hrlist.usrUdfEngname}</td>
+	    		<td>${hrlist.usrLastName}</td>
+	    		<td>${hrlist.usrUdfDeptCenName}</td>
+	    		<td><fmt:formatDate value="${hrlist.usrStartDate}"/></td>
 	    	</tr>
     	</c:forEach>
     </tbody>

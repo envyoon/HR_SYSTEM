@@ -5,17 +5,17 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.precursor.hrsystem.mvc.a99_vo.HrListTestVO;
+import com.precursor.hrsystem.mvc.a99_vo.HrList;
 import com.precursor.hrsystem.mvc.a99_vo.PagingVO;
-import com.precursor.hrsystem.mvc.hrlist.a03_dao.HrListDao;
+import com.precursor.hrsystem.mvc.hrlist.a03_dao.HrDao;
 
 @Service
 public class HrService {
 	
 	@Autowired
-	private HrListDao dao;
+	private HrDao dao;
 	
-	public List<HrListTestVO> getHrList(PagingVO pv)  {
+	public List<HrList> getHrList(PagingVO pv)  {
 		// 1. 전체 갯수
 		pv.setCount(dao.totCnt(pv));
 		
