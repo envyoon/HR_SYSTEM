@@ -31,7 +31,6 @@ public class HrListController {
 	}
 	
 	
-	
 	// 인사원장 등록 페이지
 	@RequestMapping(value="/hrInsertPage")
 	public String insertPage() {
