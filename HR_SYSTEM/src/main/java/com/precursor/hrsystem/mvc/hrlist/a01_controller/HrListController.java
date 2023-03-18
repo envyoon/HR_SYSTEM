@@ -54,7 +54,7 @@ public class HrListController {
 	public String getimKey(@RequestParam("imKey") int imKey, Model d){
 		System.out.println("상세 imKey:"+imKey);
 		d.addAttribute("HrListTestVO", service.getimKey(imKey));
-		return "hrlist/hrDetail";
+		return "hrlist/hrDetailTest";
 	}
 	
 	
@@ -64,7 +64,7 @@ public class HrListController {
 		d.addAttribute("status","수정되었습니다");
 		service.uptHr(updateHr);
 
-		return "hrlist/hrDetail";
+		return "hrlist/hrDetailTest";
 	}
 	
 	// 인사원장 삭제 페이지
@@ -72,7 +72,7 @@ public class HrListController {
 	public String delHr(@RequestParam("imKey") int imKey, Model d){
 		d.addAttribute("status","삭제되었습니다");
 		service.delHr(imKey);
-		return "hrlist/hrDetail";
+		return "hrlist/hrDetailTest";
 	}
 	
 }

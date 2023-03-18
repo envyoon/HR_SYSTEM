@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.precursor.hrsystem.mvc.a99_vo.HrList;
+import com.precursor.hrsystem.mvc.a99_vo.HrListTestVO;
 import com.precursor.hrsystem.mvc.a99_vo.PagingVO;
 import com.precursor.hrsystem.mvc.hrlist.a03_dao.HrDao;
 
@@ -22,7 +23,7 @@ public class HrService {
 		
 		// 2. 한번에 보일 페이지 수 초기값 설정
 		// 1) 초기에는 0이기에 5개로 설정 처리
-		if(pv.getPageSize()==0) { pv.setPageSize(5); }
+		if(pv.getPageSize()==0) { pv.setPageSize(8); }
 		
 		// 3. 총 페이지 수 (전체갯수, 한번에 보일 페이지 수)
 		// ex) 15건수/5 ==> 3페이지
@@ -81,4 +82,29 @@ public class HrService {
 		
 		return dao.getHrList(pv);
 	}
+	
+	
+	// 인사정보 상세 서비스 
+	public HrList getusrLogin(String usrLogin) {
+		return dao.getusrLogin(usrLogin);
+	}
+	
+	// 인사정보 삽입 서비스
+	public void insertHR(HrList hrdata) {
+		dao.insertHR(hrdata);
+	}
+	
+	// 인사정보 업데이트 서비스
+	public void uptHr(HrList updateHr) {
+		dao.uptHr(updateHr);
+	}	
+	
+	// 인사정보 삭제 서비스
+	public void delHr(String usrLogin) {
+		dao.delHr(usrLogin);
+	} 
+	
+	
+	
+	
 }

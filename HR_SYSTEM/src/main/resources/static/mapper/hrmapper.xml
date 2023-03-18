@@ -87,7 +87,7 @@
 	</insert>
 
 	<!-- 인사정보 상세 가져오는 쿼리 -->
-	<select id="getimKey" resultType="HrList">
+	<select id="getusrLogin" resultType="HrList">
 		select *
 		from HRSYS
 		where USR_LOGIN = #{usrLogin}

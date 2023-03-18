@@ -27,8 +27,8 @@
 
 
 // 상세 페이지로 이동하는 함수.
-function goDetail(imKey){
-	location.href="${path}/hrDetail?imKey="+imKey;	
+function goDetail(usrLogin){
+	location.href="${path}/hrDetail?usrLogin="+usrLogin;	
 }
 
 // 인사정보 등록하는 페이지로 이동하는 함수.
@@ -36,8 +36,8 @@ function insertPage(){
 	location.href="${path}/hrInsertPage";	
 }
 
-function goPage(im_key){
-	$("[name=curPage]").val(im_key);
+function goPage(usrLogin){
+	$("[name=curPage]").val(usrLogin);
 	$("#frm01").submit();
 }	
 
@@ -78,7 +78,7 @@ $(document).ready(function(){
 	<!-- 클릭한 페이지 번호 -->
 	<!-- 이거 자꾸 오류남 확인해야함 -->
 	<input type="hidden" name="curPage" value="1" />
-	<input type="hidden" name="pageSize" value="5" />
+	<input type="hidden" name="pageSize" value="8" />
 		
 	  	<nav class="navbar navbar-expand-sm navbar-dark">
 		    <input class="form-control mr-sm-2" placeholder="검색 내용" name="sch" value="${hrlist.sch}"/>
@@ -120,7 +120,7 @@ $(document).ready(function(){
     </thead>	
     <tbody class="text-center">
     	<c:forEach var="hrlist" items="${hrdata}">
-	    	<tr ondblclick="goDetail(${hrlist.usrLogin})">
+	    	<tr ondblclick="goDetail('${hrlist.usrLogin}')">
 	    		<td>${hrlist.usrLogin}</td>
 	    		<td>${hrlist.usrUdfKorname}</td>
 	    		<td>${hrlist.usrUdfEngname}</td>

@@ -30,24 +30,24 @@
 			alert(status);
 			// 삭제 시 alert 출력 후 리스트로 이동
 			if(status=="삭제되었습니다"){
-				location.href="${path}/hrListTest";
+				location.href="${path}/hrList";
 			}
 			
 			// 수정 시 alert 출력 후 리스트로 이동
 			if(status=="수정되었습니다"){
-				location.href="${path}/hrListTest";
+				location.href="${path}/hrList";
 			}
 		}
 		
 		// 뒤로가기 버튼
 		$("#goBack").click(function(){
-			location.href="${path}/hrListTest";
+			location.href="${path}/hrList";
 		});
 		
 		// 수정 버튼
 		$("#uptBtn").click(function(){
 			if(confirm("수정하시겠습니까?")){
-				$("form").attr("action", "${path}/uptHrTest");
+				$("form").attr("action", "${path}/uptHr");
 				$("form").submit();
 			}
 		}); 
@@ -55,7 +55,7 @@
 		// 삭제 버튼
 		$("#delBtn").click(function(){
 			if(confirm("삭제하시겠습니까?")){
-				location.href="${path}/delHrTest?imKey="+$("[name=imKey]").val();
+				location.href="${path}/delHr?usrLogin="+$("[name=usrLogin]").val();
 			}
 		});
 		
@@ -76,74 +76,15 @@
 <div class="container">
 
 	<!-- 지정 데이터를 보내기 위한 히든 처리 -->
-	<input type="hidden" name="imKey" value=${HrListTestVO.imKey}>
+	<input type="hidden" name="usrLogin" value=${HrList.usrLogin}>
 	
 	
 	<form method="post">
 	   <table class="table table-hover table-striped">
 	   
-	    <thead>
-		    <tr class="table-success text-center">
-		      <th>아이디</th><td><input type="text" name="imUserId" value=${HrListTestVO.imUserId}></td>
-		    </tr>
-		    
-		    <tr class="table text-center">
-		      <th>이름(한글)</th><td><input type="text" name="imUserNameKr" value=${HrListTestVO.imUserNameKr}></td>
-		    </tr>
-		    
-		    <tr class="table-success text-center">
-		      <th>이름(영문)</th><td><input type="text" name="imUserNameEn" value=${HrListTestVO.imUserNameEn}></td>
-		    </tr>
-		    
-		    <tr class="table text-center">
-		      <th>직급</th><td><input type="text" name="imUserRank" value=${HrListTestVO.imUserRank}></td>
-		    </tr>
-		    <tr class="table-success text-center">
-		      <th>부서</th><td><input type="text" name="imDept" value=${HrListTestVO.imDept}></td>
-		    </tr>
-		    
-		    <tr class="table text-center">
-		      <th>이메일</th><td><input type="text" name="imUserMail" value=${HrListTestVO.imUserMail}></td>
-		    </tr>
-		    
-		    <tr class="table-success text-center">
-		      <th>핸드폰번호</th><td><input type="text" name="imPhoneNum" value=${HrListTestVO.imPhoneNum}></td>
-		    </tr>
-		    
-		    <tr class="table text-center">
-		      <th>입사날짜</th><td><input type="text" name="imHireDate" value=${HrListTestVO.imHireDate}></td>
-		    </tr>
-		    
-		    <tr class="table-success text-center">
-		      <th>UPDATE</th><td><input type="text" name="imUpdate" value=${HrListTestVO.imUpdate}></td>
-		    </tr>
-		    
-		    <tr class="table text-center">
-		      <th>PASSWORD</th><td><input type="password" name="imUserPw" value=${HrListTestVO.imUserPw}></td>
-		    </tr>
-		    
-		    <tr class="table-success text-center">
-		      <th>FLAG</th><td><input type="text" name="imFlag" value=${HrListTestVO.imFlag}></td>
-		    </tr>
-		    
-		    <tr class="table text-center">
-		      <th>STATUS</th><td><input type="text" name="imStatus" value=${HrListTestVO.imStatus}></td>
-		    </tr>
-		    
-		    
-		    <tr class="table-success text-center">
-		      <th>ERCO_YMD</th><td><input type="text" name="ercoYmd" value=${HrListTestVO.ercoYmd}></td>
-		    </tr>  
-		      
-		    <tr class="table text-center">
-		      <th>RTRM_YMD</th><td><input type="text" name="rtrmYmd" value=${HrListTestVO.rtrmYmd}></td>
-		    </tr>
-		    
-		    <tr class="table-success text-center">
-		      <th>BIRYMD</th><td><input type="text" name="birymd" value=${HrListTestVO.birymd}></td>
-		    </tr>  
-		       			
-		</table>    
+	   <!-- 이곳에 상세 정보 적기 -->
+	   			
+	   </table>    
 	    
 	    
 	 	<!-- 뒤로가기, 수정하기, 삭제하기 버튼 -->
